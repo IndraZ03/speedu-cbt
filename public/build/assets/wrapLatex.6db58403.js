@@ -1,0 +1,1 @@
+function c(r){if(!r)return r;let e=r.replace(/frac(\d+)(\d+)/g,(f,a,n)=>`\\frac{${a}}{${n}}`);return e=e.replace(/([0-9])\s*[x×]\s*([0-9])/g,"$1 \\times $2"),e}function t(r){return r&&r.replace(/(frac\d+\d+(?:[+\-x×*/]frac\d+\d+)*)/g,e=>/\$.*frac/.test(r)?e:`$${c(e)}$`)}export{t as w};
