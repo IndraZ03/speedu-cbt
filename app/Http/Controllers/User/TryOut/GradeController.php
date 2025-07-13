@@ -92,6 +92,14 @@ class GradeController extends Controller
                 return abort(404);
             }
         }
+        \Log::info('Data ke frontend', [
+            'grade' => $grade,
+            'examGroup' => $examGroup,
+            'questionLists' => $questionLists,
+            'question' => $question,
+            'exam' => $exam,
+            'indexPage' => $request->indexPage ?? 0,
+        ]);
 
         return inertia('User/TryOut/Grade/Question', [
             'grade' => $grade,

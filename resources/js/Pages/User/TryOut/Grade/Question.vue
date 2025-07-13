@@ -269,6 +269,8 @@
                             </div>
                         </div>
                         <div class="card-body">
+                         
+                           
                             <div
                                 v-html="processedDiscussion"
                                 class="prevent-select"
@@ -551,7 +553,7 @@
 <script>
 //import layout admin
 import LayoutAdmin from "../../../../Layouts/Layout.vue";
-
+import { computed, watch, nextTick } from "vue";
 // import Link
 import { Link } from "@inertiajs/inertia-vue3";
 
@@ -686,7 +688,7 @@ export default {
         });
 
         const processedDiscussion = computed(() => {
-            return wrapLatexInText(props.question?.discussion || "");
+            return(props.question?.discussion || "");
         });
 
         watch(
@@ -702,6 +704,8 @@ export default {
                 });
             }
         );
+
+
 
         return {
             indexPage,

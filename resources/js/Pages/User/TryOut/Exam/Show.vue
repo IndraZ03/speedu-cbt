@@ -152,7 +152,7 @@
                                                     &nbsp;
                                                     <Link :href="`/user/grades/${grade.id}`" class="btn btn-sm btn-primary" style="width: 16vh;margin: 6px;">Hasil</Link>
                                                     &nbsp;
-                                                    <Link :href="`/user/grades/${grade.id}/questions`" v-if="exam.show_answer_discussion == 1" class="btn btn-sm btn-primary" style="width: 16vh; margin: 6px;">Pembahasan</Link>
+                                                    <Link :href="`/user/grades/${grade.id}/questions`"  v-if="exam.show_answer_discussion == 1 || exam.show_answer_discussion === '1'" class="btn btn-sm btn-primary" style="width: 16vh; margin: 6px;">Pembahasan</Link>
                                                 </div>
                                             </td>
                                         </tr>

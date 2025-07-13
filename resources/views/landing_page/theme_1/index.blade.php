@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Membantu casis POLRI, TNI, CPNS dan Kedinasan dalam berlatih agar lebih siap menghadapi tes yang sebenarnya"/>
+        <meta name="description" content="Bimbel Kedinasan SpeedU"/>
         <meta name="author" content="{{ $setting->app_name ?? '' }}" />
         <title>Home</title>
         <link rel="icon" href="{{ asset('assets/images/logo.png') }}" type="image/png" />
@@ -33,7 +33,7 @@
                     <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light">
                         <div class="container px-5">
                             <a class="navbar-brand text-primary" href="{{ url('/') }}">
-                                <img src="{{ asset('storage/upload_files/settings/2507051123_2501020943_pngwing.com (3).png') }}" style="height:40px;"/>
+                                <img src="{{ asset('storage/upload_files/settings/2507100211_2501020943_pngwing.com (3).png') }}" style="height:40px;"/>
                             </a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i data-feather="menu"></i></button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -258,7 +258,7 @@
             WAKTU PROMO TERBATAS!
           </h3>
           <p style="color: #facc15;" class="mb-3">Promo berakhir dalam:</p>
-          <div id="main-countdown" class="display-4 fw-bold" data-tujuan="2025-07-11T23:59:59">
+          <div id="main-countdown" class="display-4 fw-bold" data-tujuan="2025-07-18T23:59:59">
                             </div>
                                             </div>
                                         </div>
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="text-center mb-5">
       <h2 class="display-5 fw-bolder">Program Unggulan Kami</h2>
       <p class="lead">
-        Wujudkan mimpimu lulus tes CPNS & Sekolah Kedinasan! Pilih paket
+        Wujudkan mimpimu lulus Sekolah Kedinasan! Pilih paket
         terbaikmu di bawah ini.
       </p>
     </div>
@@ -615,11 +615,11 @@ document.addEventListener("DOMContentLoaded", function () {
               <div class="badge bg-danger bg-gradient rounded-pill px-3 py-2 mb-2">
                 #NGEBUTLATIHAN
               </div>
-              <h5 class="card-title fw-bolder">8x Try Out SKD</h5>
+              <h5 class="card-title fw-bolder">10x Try Out SKD</h5>
               <p class="card-text text-muted">
-                <span class="text-decoration-line-through">Rp 64.000</span>
+                <span class="text-decoration-line-through">Rp 80.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 37.000</h3>
+              <h3 class="fw-bolder">Rp 45.000</h3>
               <p class="lead fw-normal text-muted mb-3">Untuk 30 Pendaftar Pertama</p>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Bisa dikerjakan kapanpun</li>
@@ -647,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <p class="card-text text-muted">
                 <span class="text-decoration-line-through">Rp 45.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 30.000</h3>
+              <h3 class="fw-bolder">Rp 24.000</h3>
               <p class="lead fw-normal text-muted mb-3">Untuk 30 Pendaftar Pertama</p>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Mencakup MTK, Fisika, B. Inggris</li>
@@ -659,7 +659,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
              <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
               <div class="d-grid">
-                <a class="btn btn-outline-primary" href="{{ route('register') }}">Daftar Try Out</a>
+                 <a class="btn btn-outline-primary" href="{{ route('register') }}">Daftar Try Out</a>
                                 </div>
                                                 </div>
                                             </div>

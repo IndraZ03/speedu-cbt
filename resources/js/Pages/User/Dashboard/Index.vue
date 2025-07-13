@@ -274,6 +274,65 @@
                 class="card radius-10 border-start border-0 border-3 border-danger"
                 v-if="transactions && $page.props.auth.user.member_type == 2"
             ></div>
+            <!-- Section: Pricing table -->
+            <div class="pricing-table mt-4">
+                <div v-if="$page.props.session && $page.props.session.error" class="alert alert-danger border-0">
+                    {{ $page.props.session.error }}
+                </div>
+                <div class="row row-cols-1 row-cols-lg-3">
+                    <div class="col" v-for="(voucher, index) in vouchers" :key="index">
+                        <div class="card mb-5 mb-lg-0">
+                            <div class="card-header bg-secondary py-3" v-if="voucher.category && voucher.category.name == 'POLRI'">
+                                <h5 class="text-white text-center"><s>Rp.{{ formatPrice(voucher.price_before_discount) }}</s> <span class="badge bg-danger">{{ formatPrice((voucher.price_before_discount - voucher.price_after_discount) / voucher.price_before_discount * 100)}}%</span></h5>
+                                <h6 class="card-price text-white text-center">Rp.{{ formatPrice(voucher.price_after_discount) }}<span class="term">/{{voucher.active_period}} {{ voucher.period_type == 'day' ? 'Hari' : 'Bulan' }}</span></h6>
+                            </div>
+                            <div class="card-header bg-success py-3" v-else-if="voucher.category && voucher.category.name == 'TNI'">
+                                <h5 class="text-white text-center"><s>Rp.{{ formatPrice(voucher.price_before_discount) }}</s> <span class="badge bg-danger">{{ formatPrice((voucher.price_before_discount - voucher.price_after_discount) / voucher.price_before_discount * 100)}}%</span></h5>
+                                <h6 class="card-price text-white text-center">Rp.{{ formatPrice(voucher.price_after_discount) }}<span class="term">/{{voucher.active_period}} {{ voucher.period_type == 'day' ? 'Hari' : 'Bulan' }}</span></h6>
+                            </div>
+                            <div class="card-header bg-primary py-3" v-else-if="voucher.category && voucher.category.name == 'Kedinasan'">
+                                <h5 class="text-white text-center"><s>Rp.{{ formatPrice(voucher.price_before_discount) }}</s> <span class="badge bg-warning text-dark">{{ formatPrice((voucher.price_before_discount - voucher.price_after_discount) / voucher.price_before_discount * 100)}}%</span></h5>
+                                <h6 class="card-price text-white text-center">Rp.{{ formatPrice(voucher.price_after_discount) }}<span class="term">/{{voucher.active_period}} {{ voucher.period_type == 'day' ? 'Hari' : 'Bulan' }}</span></h6>
+                            </div>
+                            <div class="card-header bg-danger py-3" v-else-if="voucher.category && voucher.category.name == 'CPNS'">
+                                <h5 class="text-white text-center"><s>Rp.{{ formatPrice(voucher.price_before_discount) }}</s> <span class="badge bg-warning text-dark">{{ formatPrice((voucher.price_before_discount - voucher.price_after_discount) / voucher.price_before_discount * 100)}}%</span></h5>
+                                <h6 class="card-price text-white text-center">Rp.{{ formatPrice(voucher.price_after_discount) }}<span class="term">/{{voucher.active_period}} {{ voucher.period_type == 'day' ? 'Hari' : 'Bulan' }}</span></h6>
+                            </div>
+                            <div class="card-header bg-danger py-3" v-else>
+                                <h5 class="text-white text-center"><s>Rp.{{ formatPrice(voucher.price_before_discount) }}</s> <span class="badge bg-warning text-dark">{{ formatPrice((voucher.price_before_discount - voucher.price_after_discount) / voucher.price_before_discount * 100)}}%</span></h5>
+                                <h6 class="card-price text-white text-center">Rp.{{ formatPrice(voucher.price_after_discount) }}<span class="term">/{{voucher.active_period}} {{ voucher.period_type == 'day' ? 'Hari' : 'Bulan' }}</span></h6>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="text-center">{{ voucher.name }}</h6>
+                                <hr>
+                                <div class="text-center" style="min-height: 30px;">
+                                    <div v-if="voucher.member_categories">
+                                        <h6>
+                                            <div v-for="(member, index) in voucher.member_categories" :key="index" style="display: inline;">
+                                                <span class="badge bg-success m-1">{{ member }}</span>
+                                            </div>
+                                        </h6>
+                                    </div>
+                                    <div v-else>
+                                        <h6><span class="badge bg-success m-1">Akses Untuk Seluruh Tipe Member</span></h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div v-html="voucher.description" style="min-height:175px;"></div>
+                                <hr>
+                                <div v-if="voucher.user_limit && voucher.user_limit > voucher.voucher_selected_transacation_count">
+                                    <h6 class="text-center">Tersisa {{ voucher.user_limit - voucher.voucher_selected_transacation_count }} kuota dari {{ voucher.user_limit }}</h6>
+                                    <hr>
+                                </div>
+                                <div class="d-grid">
+                                    <Link :href="`/user/vouchers/${voucher.id}/buy`" class="btn btn-outline-primary px-5 radius-30">Pilih Paket</Link>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--end page wrapper -->
@@ -307,6 +366,7 @@ export default {
         gradeSummaries: Object,
         announcementSummaries: Object,
         totalDataInCategories: Object,
+        vouchers: Array,
     },
     methods: {
         formatPrice(value) {

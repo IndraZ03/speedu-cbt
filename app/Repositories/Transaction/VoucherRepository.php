@@ -41,6 +41,11 @@ class VoucherRepository extends BaseRepository implements VoucherInterface
         return $this->model->with(['category', 'subCategories'])->where('is_active', 1)->where('category_id', $params->category_id)->orderBy('created_at', 'ASC')->get();
     }
 
+    public function getAllActivatedWithoutCategory()
+    {
+        return $this->model->with(['category', 'subCategories'])->where('is_active', 1)->orderBy('created_at', 'ASC')->get();
+    }
+
     public function create($attributes)
     {
         $input = $attributes->all();

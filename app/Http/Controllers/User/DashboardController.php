@@ -13,14 +13,17 @@ use App\Repositories\MasterData\AnnouncementRepository;
 use App\Repositories\MasterData\CategoryRepository;
 use App\Models\Setting;
 use App\Models\MasterData\Category;
+use App\Repositories\Transaction\VoucherRepository;
 
 class DashboardController extends Controller
 {
     protected $transactionRepository;
+    protected $voucherRepository;
 
-    public function __construct(TransactionRepository $transactionRepository, )
+    public function __construct(TransactionRepository $transactionRepository, VoucherRepository $voucherRepository)
     {
         $this->transactionRepository = $transactionRepository;
+        $this->voucherRepository = $voucherRepository;
     }
     /**
      * Handle the incoming request.
@@ -37,7 +40,8 @@ class DashboardController extends Controller
             'totalTransactionFailed' => number_format($this->transactionRepository->getTotalTransactionFailedByUser()),
             'transactions' => $this->transactionRepository->getAllPaginatedWithParamsByUser($request),
             'announcementSummaries' =>  (new announcementRepository())->getAnnouncementSummaries(),
-            'totalDataInCategories' => Category::withCount(['exam', 'ExamGroup', 'module', 'videoModule'])->where('development_status', 'production')->orderBy('created_at', 'ASC')->get()
+            'totalDataInCategories' => Category::withCount(['exam', 'ExamGroup', 'module', 'videoModule'])->where('development_status', 'production')->orderBy('created_at', 'ASC')->get(),
+            'vouchers' => $this->voucherRepository->getAllActivatedWithoutCategory()
         ]);
     }
 }
