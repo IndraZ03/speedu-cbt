@@ -258,7 +258,7 @@
             WAKTU PROMO TERBATAS!
           </h3>
           <p style="color: #facc15;" class="mb-3">Promo berakhir dalam:</p>
-          <div id="main-countdown" class="display-4 fw-bold" data-tujuan="2025-07-18T23:59:59">
+          <div id="main-countdown" class="display-4 fw-bold" data-tujuan="2025-08-17T23:59:59">
                             </div>
                                             </div>
                                         </div>
@@ -591,7 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <p class="card-text text-muted">
                 <span class="text-decoration-line-through">Rp 40.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 25.000</h3>
+              <h3 class="fw-bolder">Rp 30.000</h3>
               <p class="lead fw-normal text-muted mb-3">Untuk 30 Pendaftar Pertama</p>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Bisa dikerjakan kapanpun</li>
@@ -619,7 +619,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <p class="card-text text-muted">
                 <span class="text-decoration-line-through">Rp 80.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 45.000</h3>
+              <h3 class="fw-bolder">Rp 50.000</h3>
               <p class="lead fw-normal text-muted mb-3">Untuk 30 Pendaftar Pertama</p>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Bisa dikerjakan kapanpun</li>
@@ -647,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <p class="card-text text-muted">
                 <span class="text-decoration-line-through">Rp 45.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 24.000</h3>
+              <h3 class="fw-bolder">Rp 30.000</h3>
               <p class="lead fw-normal text-muted mb-3">Untuk 30 Pendaftar Pertama</p>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Mencakup MTK, Fisika, B. Inggris</li>
