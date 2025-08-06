@@ -175,7 +175,7 @@
                         <div class="col-12">
                             <label class="form-label"><b>Soal</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.question"
                                 :init="{
                                     automatic_uploads: true,
@@ -249,7 +249,7 @@
                         >
                             <label class="form-label"><b>Pilihan A</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.option_1"
                                 :init="{
                                     automatic_uploads: true,
@@ -319,7 +319,7 @@
                         >
                             <label class="form-label"><b>Pilihan B</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.option_2"
                                 :init="{
                                     automatic_uploads: true,
@@ -390,7 +390,7 @@
                         >
                             <label class="form-label"><b>Pilihan C</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.option_3"
                                 :init="{
                                     automatic_uploads: true,
@@ -461,7 +461,7 @@
                         >
                             <label class="form-label"><b>Pilihan D</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.option_4"
                                 :init="{
                                     automatic_uploads: true,
@@ -532,7 +532,7 @@
                         >
                             <label class="form-label"><b>Pilihan E</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.option_5"
                                 :init="{
                                     automatic_uploads: true,
@@ -760,7 +760,7 @@
                         <div class="col-12">
                             <label class="form-label"><b>Pembahasan</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.discussion"
                                 :init="{
                                     automatic_uploads: true,

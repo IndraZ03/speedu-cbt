@@ -63,7 +63,7 @@
                         <div class="col-12">
                             <label class="form-label"><b>Deskripsi</b></label>
                             <Editor
-                                api-key="13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1"
+                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
                                 v-model="form.description"
                                 :init="{
                                     automatic_uploads: true,

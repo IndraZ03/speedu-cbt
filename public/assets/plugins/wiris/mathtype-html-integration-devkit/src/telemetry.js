@@ -83,7 +83,7 @@ export default class TelemetryService {
             cache: "no-cache",
             headers: {
                 "Content-Type": "application/json",
-                "X-Api-Key": "13ur369wvx9io33d75ns22xb268f3ofabfo7kv1nupejl0e1",
+                "X-Api-Key": "hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr",
                 "Accept-Version": "1", // TODO
             },
             body: JSON.stringify(TelemetryService.composeBody(messages)),
