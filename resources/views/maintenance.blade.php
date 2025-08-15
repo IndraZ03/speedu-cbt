@@ -165,7 +165,7 @@
     <div class="container">
         <div class="icon">⚙️</div>
         <h1>Kami Sedang Melakukan Peningkatan dan Pemeliharaan Server</h1>
-        <p>Mohon maaf atas ketidaknyamanannya. Kami sedang bekerja keras untuk memberikan pengalaman yang lebih baik untuk Anda.</p>
+        <p>Mohon maaf atas ketidaknyamanannya. Kami sedang bekerja keras untuk memberikan pengalaman yang lebih baik untuk Anda. Terimakasih</p>
 
         <div id="countdown">
             <div class="time-box">

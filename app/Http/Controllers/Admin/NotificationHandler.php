@@ -50,7 +50,7 @@ class NotificationHandler extends Controller
                     'expired_date' => $dataTransaction->period_type == 'day' ? Carbon::now()->addDays($dataTransaction->active_period) : Carbon::now()->addMonths($dataTransaction->active_period)
                 ]);
 
-                $message = "*[TRANSAKSI ".$setting->app_name."]*\n\nKode Transaksi: ".$dataTransaction->code."\nTotal Pembayaran: Rp".number_format($dataTransaction->total_payment, 2, ",", ".")."\nketerangan: ".$dataTransaction->description."\n\n*TRANSAKSI BERHASIL DAN SUDAH AKTIF*\n\nterimakasih.";
+                $message= "*[TRANSAKSI SUKSES ".$setting->app_name."]*\n\nKode Transaksi: ".$transaction->code."\nTotal Pembayaran: Rp".number_format($transaction->total_payment, 2, ",", ".")."\nketerangan: ".$transaction->description."\n\n*TRANSAKSI BERHASIL DAN SUDAH AKTIF*\n\n*CARA MENGAKSES TRY OUT:*\n1. Masuk ke halaman dashboard\n2. Pilih kotak merah paling atas bertuliskan try out sekdin\n3. Pilih TRY OUT yang sudah dibeli (Misalkan SKD) klik selengkapnya\n4. Pilih Try Out yang sudah dibeli dan klik Kerjakan\n5. Di halaman kerjakan, klik Mulai Kerjakan\n\n*CARA MENGAKSES PEMBAHASAN*\n1. Masuk ke halaman dashboard\n2. Pilih kotak merah paling atas bertuliskan try out sekdin\n3. Pilih TRY OUT yang sudah dibeli (Misalkan SKD) klik selengkapnya\n4. Pilih Try Out yang sudah dibeli dan klik Kerjakan\n5. Klik \"Pembahasan\" pada setiap subtes. Untuk melihat hasil, klik \"Hasil\".\n\nterimakasih.";
 
                 UserMemberCategory::create([
                     'transaction_id' => $dataTransaction->id,

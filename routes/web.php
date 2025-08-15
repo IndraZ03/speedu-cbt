@@ -1,9 +1,9 @@
 <?php
 
-Route::get('/{any?}', function () {
-    // Mengirim response 503 yang baik untuk SEO
-    return response()->view('maintenance', [], 503);
-})->where('any', '.*');
+// Route::get('/{any?}', function () {
+//     // Mengirim response 503 yang baik untuk SEO
+//     return response()->view('maintenance', [], 503);
+// })->where('any', '.*');
 
 use Illuminate\Support\Facades\Route;
 use Spatie\Analytics\Period;

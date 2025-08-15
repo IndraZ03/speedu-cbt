@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <h5 class="mb-0 px-3">
-                        Atau Input Nominal Manual
+                        Atau Input Nominal Manual (Tidak diberi titik,contoh:50000)
                     </h5>
                     <div class="card-body">
                         <div class="row">
