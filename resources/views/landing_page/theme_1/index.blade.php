@@ -487,12 +487,12 @@ document.addEventListener("DOMContentLoaded", function () {
               <div class="badge bg-primary bg-gradient rounded-pill px-3 py-2 mb-2">
                 #NGEBUTBELAJAR
               </div>
-              <h5 class="card-title fw-bolder">Kelas Online SKB STMKG Eksklusif</h5>
+              <h5 class="card-title fw-bolder">Kelas SKB FISIKA STMKG</h5>
               <p class="card-text text-muted">
-                <span class="text-decoration-line-through">Rp 800.000</span>
+                <span class="text-decoration-line-through">Rp 350.000</span>
               </p>
-              <h3 class="fw-bolder">Rp 525.000</h3>
-              <p class="lead fw-normal text-muted mb-3">/15 Sesi</p>
+              <h3 class="fw-bolder">Rp 200.000</h3>
+              <p class="lead fw-normal text-muted mb-3">/10 Sesi</p>
               <div class="alert alert-primary">
                 <strong>KELAS EKSKLUSIF - HANYA 10 ORANG!</strong>
               </div>
@@ -506,56 +506,25 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
               <div class="d-grid">
-                <a class="btn btn-primary" href="https://wa.me/{{ $setting->whatsapp_number }}?text={{ urlencode('Hai Kak, saya sangat tertarik dengan program *Kelas Online SKB STMKG Eksklusif* dari Bimbel Speedu. Saya ingin mendaftar dan melanjutkan ke proses pembayaran. Mohon informasinya, terima kasih!') }}">Daftar Sekarang</a>
+                <a class="btn btn-primary" href="https://wa.me/{{ $setting->whatsapp_number }}?text={{ urlencode('Hai Kak, saya sangat tertarik dengan program *Kelas SKB FISIKA STMKG* dari Bimbel Speedu. Saya ingin mendaftar dan melanjutkan ke proses pembayaran. Mohon informasinya, terima kasih!') }}">Daftar Sekarang</a>
               </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-        <div class="col-lg-4 mb-5">
-          <div class="card h-100 shadow border-warning border-2">
-            <div class="card-body p-4">
-              <div class="badge bg-warning bg-gradient rounded-pill px-3 py-2 mb-2 text-dark">
-                Recommended
-              </div>
-              <h5 class="card-title fw-bolder">Kelas Online SKB STMKG Prima</h5>
-              <p class="card-text text-muted">
-                <span class="text-decoration-line-through">Rp 1.000.000</span>
-              </p>
-              <h3 class="fw-bolder">Rp 825.000</h3>
-              <p class="lead fw-normal text-muted mb-3">/15 Sesi</p>
-               <div class="alert alert-warning">
-                <strong>KELAS PRIMA - HANYA 5 ORANG!</strong>
-              </div>
-              <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Pengajar Profesional >2 thn</li>
-                <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Rekaman Belajar & Grup Diskusi</li>
-                <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Bebas Konsultasi WhatsApp</li>
-                <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span><strong>GRATIS Try Out SKB</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Monitoring Progress Belajar</li>
-              </ul>
             </div>
-             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-              <div class="d-grid">
-                <a class="btn btn-warning" href="https://wa.me/{{ $setting->whatsapp_number }}?text={{ urlencode('Hai Kak, saya sangat tertarik dengan program *Kelas Online SKB STMKG Prima* dari Bimbel Speedu. Saya ingin mendaftar dan melanjutkan ke proses pembayaran. Mohon informasinya, terima kasih!') }}">Ambil Kelas Prima</a>
-              </div>
-                                        </div>
-                                    </div>
-                                </div>
+          </div>
+        </div>
 
         <div class="col-lg-4 mb-5">
           <div class="card h-100 shadow border-0">
             <div class="card-body p-4">
-               <div class="badge bg-primary bg-gradient rounded-pill px-3 py-2 mb-2">
+              <div class="badge bg-primary bg-gradient rounded-pill px-3 py-2 mb-2">
                 #NGEBUTBELAJAR
               </div>
               <h5 class="card-title fw-bolder">Kelas Privat Offline SKB STMKG</h5>
-               <p class="card-text text-muted">
+              <p class="card-text text-muted">
                 <span class="text-decoration-line-through">Rp 2.500.000</span>
               </p>
               <h3 class="fw-bolder">Rp 2.000.000</h3>
               <p class="lead fw-normal text-muted mb-3">/10 Sesi</p>
-               <div class="alert alert-info">
+              <div class="alert alert-info">
                 <strong>AREA TANGERANG!</strong> Guru datang ke rumah.
               </div>
               <ul class="fa-ul">
@@ -566,16 +535,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><span class="fa-li"><i class="fas fa-check text-primary"></i></span>Monitoring Progress Belajar</li>
               </ul>
             </div>
-             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
               <div class="d-grid">
                 <a class="btn btn-primary" href="https://wa.me/{{ $setting->whatsapp_number }}?text={{ urlencode('Hai Kak, saya sangat tertarik dengan program *Kelas Privat Offline SKB STMKG* dari Bimbel Speedu. Saya ingin mendaftar dan melanjutkan ke proses pembayaran. Mohon informasinya, terima kasih!') }}">Daftar Privat</a>
               </div>
             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="mb-5">
       <h3 class="text-center fw-bolder mb-4">
         Paket Try Out

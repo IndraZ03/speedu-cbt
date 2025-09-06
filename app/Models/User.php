@@ -86,4 +86,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\UserMemberCategory');
     }
+    
+    public function memberCategories()
+    {
+        return $this->belongsToMany('App\Models\MemberCategory', 'user_member_categories', 'user_id', 'category_id')
+            ->using('App\Models\UserMemberCategory')
+            ->withPivot('transaction_id', 'description', 'member_categories', 'expired_date');
+    }
 }

@@ -41,6 +41,8 @@ class UserRequest extends FormRequest
             'level' => 'required',
             'member_type' => 'required',
             'is_active' => 'required',
+            'category_id' => 'nullable|array',
+            'category_id.*' => 'exists:member_categories,id',
 
             'province_id' => 'sometimes',
             'city_id' => 'sometimes',
