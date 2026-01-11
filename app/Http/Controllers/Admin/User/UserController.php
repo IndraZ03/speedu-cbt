@@ -138,7 +138,7 @@ class UserController extends Controller
         
         sendWhatsappNotification($user->student->phone_number, $message);    
 
-        return redirect()->back()->with('success', 'Reminder telah dikirim.');
+        return redirect()->back()->with('success', 'Reminder telah berhasil dikirim.');
     }
 
     public function sendActivationLink($id)

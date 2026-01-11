@@ -374,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </p>
     </div>
 
-    <div class="mb-5">
+    {{-- <div class="mb-5">
       <h3 class="text-center fw-bolder mb-4">
         Program Unggulan Bimbel SKD
       </h3>
@@ -472,11 +472,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
     
     
-    <div class="mb-5">
+    {{-- <div class="mb-5">
       <h3 class="text-center fw-bolder mb-4">
         Program Unggulan Bimbel SKB STMKG
       </h3>
@@ -543,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="mb-5">
       <h3 class="text-center fw-bolder mb-4">

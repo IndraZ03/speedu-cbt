@@ -201,7 +201,7 @@
                                 >Deskripsi Latihan Soal</label
                             >
                             <Editor
-                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
+                                :api-key="$page.props.tinymceApiKey"
                                 v-model="form.description"
                                 :init="{
                                     images_upload_url: '/upload',

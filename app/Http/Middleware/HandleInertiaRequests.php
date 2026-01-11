@@ -54,6 +54,7 @@ class HandleInertiaRequests extends Middleware
             'app' => [
                 'url' => config('app.url'),
             ],
+            'tinymceApiKey' => env('TINYMCE_API_KEY', ''),
             'voucherCategories' => DB::table('categories')->where('development_status', 'production')->orderBy('created_at', 'ASC')->get(),
             'setting' => Setting::first() ?? []
         ]);
