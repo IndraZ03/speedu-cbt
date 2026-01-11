@@ -1,0 +1,1034 @@
+[2026-01-11 13:48:58] ==========================================
+[2026-01-11 13:48:58] MEMULAI BACKUP DATABASE OTOMATIS
+[2026-01-11 13:48:58] ==========================================
+[2026-01-11 13:48:58] Step 1: Memulai backup database speedukedinasanku...
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: Got error: 1045: Access denied for user 'root'@'localhost' (using password: YES) when trying to connect
+[2026-01-11 13:48:58] ✗ ERROR: Gagal membuat backup database!
+[2026-01-11 13:52:06] ==========================================
+[2026-01-11 13:52:06] MEMULAI BACKUP DATABASE OTOMATIS
+[2026-01-11 13:52:06] ==========================================
+[2026-01-11 13:52:06] Step 1: Memulai backup database speedukedinasanku...
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+[2026-01-11 13:52:09] ✓ Backup database berhasil: speedukedinasanku_20260111_135206.sql
+[2026-01-11 13:52:09]   Ukuran file SQL: 36M
+[2026-01-11 13:52:09] Step 2: Mengompres file backup...
+[2026-01-11 13:52:10] ✓ File berhasil dikompres: speedukedinasanku_20260111_135206.sql.gz
+[2026-01-11 13:52:10]   Ukuran file terkompresi: 4.8M
+[2026-01-11 13:52:10] Step 3: Memulai push ke GitHub...
+[2026-01-11 13:52:10]   Mengecek branch aktif...
+[2026-01-11 13:52:10]   Beralih ke branch vps...
+warning: unable to unlink 'storage/app/json/exam-group-ec98fbb0-eee5-4d6e-a2c2-cdfb6dd89e71-exam-group-updated-at-20250825112329.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-0bf6fada-7366-4cbf-a807-442fd0c785d0-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-0bf6fada-7366-4cbf-a807-442fd0c785d0-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-14f1cb88-a682-4237-bc2e-652372635fbe-exam-group-c2fae5ab-63a4-4341-8d8f-414625591909-exam-group-updated-at-20250901024639.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-17284d1e-b281-45ad-b688-7455ac361a3a-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-17284d1e-b281-45ad-b688-7455ac361a3a-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-17284d1e-b281-45ad-b688-7455ac361a3a-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-2391a943-5f32-477a-bc35-e1cd0e85223f-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-2391a943-5f32-477a-bc35-e1cd0e85223f-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-3665ea75-9091-417f-b62b-0901a6aea7b6-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-37406492-cb64-407e-89dd-bdec3b08ee2b-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-3c2f4c02-dc82-475e-bf8c-e3b44923ad30-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-3c2f4c02-dc82-475e-bf8c-e3b44923ad30-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-3f5b211f-d91c-49c2-9f31-ffa6a3ce2eb1-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-3f5b211f-d91c-49c2-9f31-ffa6a3ce2eb1-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-42abe4c2-b6ea-45c4-a6df-fbecbdd74387-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-4774dfa9-e41a-4b21-889c-38a3fec5e48a-exam-group-e1613c56-faf6-4292-8904-f58a8401573f-exam-group-updated-at-20250812091249.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-4b1d7612-08d5-4384-b72c-0dc8572055fb-exam-group-0c0d8c50-f6cb-463f-b645-7339ab46aea1-exam-group-updated-at-20260108081242.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-505d35e5-71e0-4b91-9f59-cbc637ebb003-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-52a85aa6-6274-42b7-84d7-49ee44e7acb1-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-5e8ddbb1-8e75-4f37-a96e-3a568dc9696d-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-5ffbc316-79d4-448b-a46d-b75902fd64f7-exam-group-cd0297c3-1f39-41cf-b366-59991cd9ff48-exam-group-updated-at-20250818104407.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6458ec3c-d19c-4bc3-869e-e867719b10dc-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6458ec3c-d19c-4bc3-869e-e867719b10dc-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6458ec3c-d19c-4bc3-869e-e867719b10dc-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6708b061-f8a9-4b3c-96d7-8f356e96f992-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6aee83bf-3a73-456c-a68b-a217d7c95fc4-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6aee83bf-3a73-456c-a68b-a217d7c95fc4-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6b852843-4d39-48a0-adc5-1236e5eb0a87-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6b852843-4d39-48a0-adc5-1236e5eb0a87-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-6e293ba4-d0b8-49bf-a0ac-aed7603f4284-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-71e756c5-a3b0-445f-a87f-2394d26b82b6-exam-group-0c0d8c50-f6cb-463f-b645-7339ab46aea1-exam-group-updated-at-20260108081242.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-7bfc25f9-654b-4b54-8ed8-55c6b7ac844f-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-7fd591a2-79d0-40bc-b427-46c00614ec96-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-82ff8f68-9fa0-4771-a5c7-8f61b40bfb91-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-82ff8f68-9fa0-4771-a5c7-8f61b40bfb91-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-85a63c8b-7dd9-4382-8b33-4b9610c26887-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-85a63c8b-7dd9-4382-8b33-4b9610c26887-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-87c72a21-18d3-4239-bb97-f4a4f20e07cf-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-896e322d-3301-47c9-b896-02c19e787444-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-896e322d-3301-47c9-b896-02c19e787444-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-896e322d-3301-47c9-b896-02c19e787444-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-8a0009f3-f26f-4a0f-93c8-afa16740a433-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-91a248f6-2fe4-45fa-876f-14c8de6dda13-exam-group-2936a0c4-841a-40be-8052-b45d74fb7eb0-exam-group-updated-at-20250818104631.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-91a248f6-2fe4-45fa-876f-14c8de6dda13-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-95ca10ec-18e9-4828-9b45-a949ac82ff5a-exam-group-c2fae5ab-63a4-4341-8d8f-414625591909-exam-group-updated-at-20250901024639.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-95ca10ec-18e9-4828-9b45-a949ac82ff5a-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-97d780d5-266a-46e5-87dc-78abf0425a40-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-97d780d5-266a-46e5-87dc-78abf0425a40-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-9bf68547-e4c9-4f38-9dce-7d1cab89d1e4-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-9bf68547-e4c9-4f38-9dce-7d1cab89d1e4-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-a7085004-6305-4997-9d86-424759f7150c-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-a7085004-6305-4997-9d86-424759f7150c-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-ab5e1c41-ca50-4171-bc58-fd17f21e2c9f-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-b2fa24d0-6e1f-4729-a4ed-a4efe3ab309e-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-b2fa24d0-6e1f-4729-a4ed-a4efe3ab309e-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-b9a6cb9c-fc58-4c64-ba70-6c502664b025-exam-group-71a20bc5-0539-48ca-88e6-d89b3ab4ed03-exam-group-updated-at-20250903105948.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-bce11bb6-b39d-4ecb-9dfc-81a361d39a43-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-bce11bb6-b39d-4ecb-9dfc-81a361d39a43-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-c287d688-3a8f-4131-bc28-62ea19094eda-exam-group-cd0297c3-1f39-41cf-b366-59991cd9ff48-exam-group-updated-at-20250818104407.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-cbd4e03d-046b-4362-af83-e11ba6205016-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-cf64d176-3014-457d-9184-8a013f3599f6-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-da6239db-6cde-4ac8-b70f-fb3400312e0d-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-df4925ed-039e-4c35-a3ef-4113a3b9ffb6-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-df4925ed-039e-4c35-a3ef-4113a3b9ffb6-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-e74f4392-ce08-4b3d-854a-8e70538c236f-exam-group-c2fae5ab-63a4-4341-8d8f-414625591909-exam-group-updated-at-20250901024639.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-efd1981a-39a3-4275-a9cd-0b17f7a98df1-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-efdf3242-dbe9-4eb1-a64b-32561aa57b41-exam-group-650dd828-9642-49d4-ad7b-f83876f80503-exam-group-updated-at-20250818104004.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-efdf3242-dbe9-4eb1-a64b-32561aa57b41-exam-group-96c8ef73-8fce-4672-8658-72425a566d31-exam-group-updated-at-20250818103942.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-efdf3242-dbe9-4eb1-a64b-32561aa57b41-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-f927f67a-2948-4ec8-9ff2-2591ff6e10d0-exam-group-71a20bc5-0539-48ca-88e6-d89b3ab4ed03-exam-group-updated-at-20250903111008.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-f927f67a-2948-4ec8-9ff2-2591ff6e10d0-exam-group-c2fae5ab-63a4-4341-8d8f-414625591909-exam-group-updated-at-20250901024639.json': Permission denied
+warning: unable to unlink 'storage/app/json/user-id-f9a49b0b-66d0-4b3d-a62b-8889b7124065-exam-group-c7ce78b0-cee1-4e45-8ba4-8e7b68dfe113-exam-group-updated-at-20250818103907.json': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/banks/2507100306_unnamed.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/banks/2507100315_2oYgiVPUa27XyepRpUf6O2SEcnG_cover_294.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/banks/2507100345_images (1).jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/banks/2507100355_bank-bni-logo-png_seeklogo-355606.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/categories/2507100355_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lesson_categories/2507100323_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lesson_categories/2507100345_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lesson_categories/2508021102_Desain tanpa judul (6).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lesson_categories/2508241147_Desain tanpa judul (6).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100302_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100308_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100314_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100329_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100342_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2507100354_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2508021141_Desain tanpa judul (6).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/lessons/2508241103_2507100211_2501020943_pngwing.com (3).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507100359_WhatsApp Image 2025-07-01 at 20.44.14_b0db4ff4.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507100450_Sistem Prediksi Kualitas Udara (4).png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110554_1719797023865.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110725_Screenshot_2025-07-11-19-57-51-60_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110743_IMG-20250711-WA0017.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110745_IMG-20250711-WA0017.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110814_IMG-20250711-WA0017.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110827_Screenshot_2025-07-11-20-35-09-54_121d0782f1cd8474b48c9b27865007fd.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110839_WhatsApp Image 2025-07-11 at 9.12.02 PM.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507110847_IMG-20250711-WA0197.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120253_Screenshot_2025-07-12-14-28-06-51_1ab0a00014f71eecf9b70b7899363193.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120337_Screenshot_20250712_150420_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120708_b168bde2-4e38-42c4-96a0-09716d5ad44d.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120743_IMG-20250712-WA0035.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120756_8f8f08b3-2eb9-4d2e-877b-0bd8ab2ce608.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120816_291ae0ea-b0f3-4882-94df-32739cdb6cf5.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507120915_WhatsApp Image 2025-07-12 at 10.42.33 AM.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507121054_Screenshot_2025-07-12-22-43-54-184_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507121112_IMG_3886.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507121120_IMG_3885.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507121124_Screenshot_20250713_004310_wondr by BNI.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130101_Transaksi_BCAmobile-20250713-134129.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130605_Screenshot_20250713_181242_Flip.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130615_WhatsApp Image 2025-07-13 at 18.48.42_01ecb1a9.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130625_IMG-20250713-WA0005.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130636_Screenshot_20250713_185251_bale by BTN.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130811_dana.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507130821_IMG-20250713-WA0123.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507140329_Screenshot_20250714_152540_WhatsApp.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507140632_WhatsApp Image 2025-07-14 at 18.49.01_f9cf90cd.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507140812_b6caad25-d279-492b-8cb4-bfad618a888b.jfif': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507140842_Screenshot_20250714_201031_WhatsApp.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507140950_Screenshot_20250714-094354.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507141058_Screenshot_20250714_102459_Shopee.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150101_Screenshot_2025-07-15-01-04-10-355_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150111_Screenshot_2025-07-15-01-04-10-355_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150115_Screenshot_2025-07-15-13-14-40-554_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150150_Screenshot_2025-07-15-01-10-11-051_com.ss.android.ugc.trill.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150154_Screenshot_2025-07-15-01-04-10-355_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150206_Screenshot_20250715_023629.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150212_IMG_0497.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150232_Screenshot_20250715_023302.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150253_IMG-20250715-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150258_Screenshot_2025-07-15-02-15-36-516_id.bmri.livin.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150434_Screenshot_20250715_162557.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150701_Screenshot_20250715-072858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150702_Screenshot_20250715-072858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150705_Screenshot_20250715-072858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150751_Screenshot_20250715-072858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150753_Screenshot_20250715-072858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150855_IMG-20250715-WA0013.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507150903_ed7485fc-2b28-4ea2-b8bf-7327be91957c.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151042_Screenshot_20250715_095940_Gojek.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151217_Screenshot_20250715-001810.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151227_Screenshot_2025-07-15-00-33-25-409_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151235_reSeneipt_57504_11_28_11_26_14.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151236_reSeneipt_57504_11_28_11_26_14.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507151249_1752515113010.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507160719_Screenshot_20250716_195315_Flip.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507160856_IMG-20250716-WA0008.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507161050_Screenshot_20250716_225233_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507161101_IMG_8318.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507170659_20250717061508000121-1752707750460.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507170708_WhatsApp Image 2025-07-17 at 08.41.58.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507170840_IMG-20250717-WA0047.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507171034_d2418f16-ca25-4b5b-bb49-534dda419c5a.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507171150_IMG-20250717-WA0017.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507171219_IMG_1791.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180116_IMG_Fri Jul 18 01_27_34 GMT+07_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180129_IMG_3020.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180209_IMG-20250718-WA0028.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180211_Screenshot_2025-07-18-14-05-20-718_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180230_Screenshot_20250718_142055_wondr by BNI.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180243_bukti bayar speedu.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180244_E231E6C4-065B-45BE-93A7-F996484EF448.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180312_Screenshot_2025-07-18-15-00-27-777_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180320_Screenshot_20250718_150701_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180321_Screenshot_20250718_150701_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180351_IMG_7870.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180354_Screenshot_20250718_145915_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180518_f9caae53-35fa-4b81-abcc-010b9b3e7347.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180611_Screenshot_20250718_185604_Shopee.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180613_Screenshot_2025_0718_182939.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180615_Screenshot_2025-07-18-18-39-02-208_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180722_IMG_3332.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180735_WhatsApp Image 2025-07-18 at 19.09.51_48ef9a0a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180816_20250718082523000682-1752845134228.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180818_20250718080818000460-1752844108810.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180826_IMG-20250718-WA0033.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180838_Screenshot_20250718-202144_1.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180914_Screenshot_2025-07-18-21-58-38-234_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507180938_Screenshot_2025-07-18-21-05-26-58_f0d5010b4078101d669cabe708845c5e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507181112_Screenshot_2025-07-18-23-31-12-904_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507181118_Screenshot_2025-07-18-23-18-46-095_id.co.bankfama.android.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507181118_Screenshot_20250719_004426.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507181251_IMG_1003.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190237_Screenshot_20250719-153836.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190551_Screenshot_2025-07-19-17-06-08-00_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190647_bukti.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190712_IMG-20250719-WA0012.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190719_IMG-20250719-WA0012.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190722_IMG-20250719-WA0013.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507190934_IMG-20250719-WA0005.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507191020_Screenshot_2025-07-19-10-21-23-816_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507191218_IMG_9507.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507191233_IMG_9505.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507200102_Screenshot_20250720_143439.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507200208_WhatsApp Image 2025-07-20 at 14.09.55.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507200359_IMG-20250720-WA0010.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507200648_WhatsApp Image 2025-07-19 at 23.22.41 (2).jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507200931_Screenshot_20250720_092412_bale by BTN.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507201108_IMG_2251.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507201122_tf.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507210132_2c38d0c34bc63cfcba0b657b9f004e6b_0.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507210401_d2418f16-ca25-4b5b-bb49-534dda419c5a.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507210719_Screenshot_20250721_072727_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507210808_IMG_3907.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507211108_Screenshot_20250721_113950_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507220647_Screenshot_20250722-060755.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507221008_Screenshot_2025-07-22-22-54-10-34_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507221052_PEMBAYARANSPEEDU.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507221251_a915a7bd-1838-4754-870e-fd031a3c4c16.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230442_Screenshot_2025-07-23-16-08-41-654_id.co.bankbkemobile.digitalbank.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230449_WhatsApp Image 2025-07-23 at 16.19.02.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230639_Screenshot_2025-07-23-18-38-40-890_id.bni.wondr.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230735_WhatsApp Image 2025-07-23 at 19.05.05.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230816_Screenshot_20250723_204223_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230821_IMG_5511.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230825_IMG_5510.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507230826_0B368F24-5A58-4FB3-A261-25B0712B7044.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507231128_IMG-20250723-WA0012.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507231131_BD942054-735D-4561-99DE-452B041E5FF8.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507231143_IMG-20250723-WA0008.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240500_IMG_5823.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240546_Transaksi_BCAmobile-20250724-171058.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240654_IMG-20250724-WA0007.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240722_IMG-20250724-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240857_Screenshot_20250724-200154_Shopee.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240941_9dd101ca-23be-4687-9e4b-5b3532dadecb.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507240946_Screenshot_2025-07-24-09-21-56-24_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507241018_IMG_Fri Jul 25 00_35_08 GMT+09_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507241126_IMG_4169.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507241219_IMG_5713.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507250426_BUKTI TF SKB.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507250713_IMG_4074.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507250837_Screenshot_2025-07-25-20-30-46-795_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507251017_WhatsApp Image 2025-07-25 at 10.22.35_a2571fc7.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507251037_WhatsApp Image 2025-07-25 at 10.22.48_9994cf0e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507251142_1e0fc222-4127-469c-9f99-8b2482c9f81d.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507251208_Screenshot_2025-07-25-00-33-54-80_743e33170befb8303cd6da83c10dfea8.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507260629_Screenshot_20250726_182823_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507260633_IMG-20250726-WA0020.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507260858_IMG-20250726-WA0031.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507270512_Screenshot_20250727_172504_WhatsApp.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507270837_Screenshot_20250727_201004_ShopeePay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507270904_20250727095732000941-1753585116993.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507280522_IMG-20250728-WA0031.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507281255_reKameipt_57541_05_01_23_08_40.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507290125_IMG_Tue Jul 29 15_46_24 GMT+09_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507290308_Gambar WhatsApp 2025-07-29 pukul 15.46.20_446bc55c.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507290953_IMG-20250729-WA0079.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507291208_Screenshot_20250729_143423.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507301048_WhatsApp Image 2025-07-30 at 22.28.41.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507311124_tf.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507311204_1753941227670.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2507311207_Screenshot_2025-07-31-12-59-37-48_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508010809_IMG-20250801-WA0050.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508040142_IMG-20250804-WA0000.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508061001_Screenshot_2025-08-06-10-15-42-40_f0d5010b4078101d669cabe708845c5e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508061053_FFB383DA-EF0D-4C4D-AEC9-48BA2BB55061.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508080110_bukti.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508080539_IMG-20250808-WA0021.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508080713_WhatsApp Image 2025-08-08 at 19.36.54.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508080820_WhatsApp Image 2025-08-08 at 20.33.05.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508090300_20250809033243000630-1754728374151.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508091159_speedu to.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508100149_IMG-20250810-WA0014.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508100724_WhatsApp Image 2025-08-10 at 21.45.44_bb549e23.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508110611_Screenshot_20250808_214751.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508110612_Screenshot_20250808_214751.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508110613_Screenshot_20250808_214751.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120720_p up.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120804_Screenshot_20250812_202650_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120814_IMG_9444.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120817_WhatsApp Image 2025-08-12 SLIP PEMBAYARAN TO.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120841_Screenshot_20250812_201714_wondr by BNI.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120844_Screenshot_20250812_205529.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120908_IMG-20250812-WA0011.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120926_f9ba40e0-2f7c-4029-b6b5-e756a94eb093.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120927_Screenshot_2025-08-12-21-19-50-881_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120936_1755008906238.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508120936_Screenshot_2025-08-12-21-19-50-881_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508121009_IMG_8575.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508121009_Screenshot_20250812_225755.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508121011_5c3523d4-adb1-4b79-adfb-6dc799bae7df.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508121035_Speedu-bayar egaayurf.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508121056_black-check-box_icon-icons.com_72860.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130113_WhatsApp Image 2025-08-13 at 13.00.48_c9e0723d.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130115_IMG_4162.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130123_WhatsApp Image 2025-08-13 at 13.59.04_6a2d639c.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130150_IMG_2206.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130207_IMG-20250813-WA0009.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130210_Screenshot_20250813_022428_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130222_IMG_Wed Aug 13 14_06_37 GMT+07_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130241_IMG_0555.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130245_Screenshot_2025-08-13-14-53-21-77_27720e2149771be9c38696e952a9e0cb.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130248_IMG_Wed Aug 13 14_06_37 GMT+07_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130306_IMG_1813.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130325_Screenshot_2025-08-13-15-45-50-565_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130328_Screenshot_20250813_153110_wondr by BNI.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130354_0f63f616-5f0e-4c3f-b789-b7b5938658c4.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130439_Screenshot_2025-08-13-18-54-02-44_1c37ef63dcf02305cb94eec0e7b7412f.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130439_Screenshot_20250813_165828_Shopee.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130519_IMG-20250813-WA0088.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130535_20250813044546000717-1755081497744.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130546_IMG-20250813-WA0032.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130558_Screenshot_20250724-182501_Chrome.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130604_Screenshot_20250813_065524_Gmail.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130608_20250813060245000883-1755083034906.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130613_Screenshot_2025-08-13-18-35-53-605_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130618_WhatsApp Image 2025-08-13 at 18.46.45_1486b1e6.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130627_Screenshot_20250813_103001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130637_IMG_3328.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130705_Screenshot_20250813_070827_ShopeePay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130706_WhatsApp Image 2025-08-13 at 19.10.25_c43c67d5.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130716_WhatsApp Image 2025-08-13 at 19.10.25_c43c67d5.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130722_Screenshot_2025-08-13-07-46-41-189_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130733_IMG_6183.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130734_Screenshot_20250813_073919_Superbank.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130755_WhatsApp Image 2025-08-13 at 07.46.28_5ef25d66.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130758_Screenshot_2025_0813_075004_id.dana.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130800_Screenshot_2025-08-13-08-49-21-00_c31b32364ce19ca8fcd150a417ecce58.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130810_IMG_6339.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130810_IMG_7066.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130811_30k.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130817_6e37be0f-bba9-4bc9-9cd6-35939a03c4df.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130839_Screenshot_20250813_083129_GoPay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130853_IMG-20250813-WA0033.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130857_IMG-20220413-WA0003.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130909_Screenshot_20250813_091210_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130923_IMG_7066.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130927_ca450ca2-0758-422e-9704-e20a015590ae.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130937_Bukti Transfer .jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130944_IMG_0139.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130951_IMG_7795.PNG': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130951_bni.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130957_IMG-20250813-WA0018.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508130958_WhatsApp Image 2025-08-13 at 09.22.28_d9692e9d.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131006_Screenshot_2025_0813_095920_id.dana.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131009_Screenshot_2025-07-29-09-09-26-27_6012fa4d4ddec268fc5c7112cbb265e7.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131010_BUKTI GOPAY.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131016_Screenshot_20250813-220826.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131021_Screenshot_20250813_102859_bale by BTN.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131029_WhatsApp Image 2025-08-13 at 10.36.00_87deb342.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131045_WhatsApp Image 2025-08-13 at 22.57.38_2097fb48.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131053_Screenshot_20250813-105114.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131059_Screenshot_20250813-101833.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131120_IMG_9877.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131123_Screenshot_20250813_112627_OCBC.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131140_Kam14Agustus20250012.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131143_IMG_Thu Aug 14 00_08_20 GMT+08_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131146_bukti tf dana m raviansyah irvan saputra.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131147_Screenshot_2025_0813_115613_id.dana.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131214_615F83AF-C1DD-4FC5-8E6A-AF281EB1B9B7.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131215_IMG_1864.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131229_IMG-20250813-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508131251_WhatsApp Image 2025-08-13 at 00.32.44_44de2afe.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140107_IMG_1166.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140107_Screenshot_20250814_133251_DANA.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140118_IMG_1165.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140206_Screenshot_20250814-141830.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140214_BB98CC3C-9862-47D1-9375-9238C2AF10F0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140325_WhatsApp Image 2025-08-14 at 15.50.57 (1).jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140508_17551670818707756037254727898939.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140509_Screenshot_2025-08-14-17-06-51-207_id.co.bankbkemobile.digitalbank.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140616_Screenshot_20250814-185721.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140657_Screenshot_2025-08-14-19-16-14-127_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140702_Screenshot_20250814_070951_bale by BTN.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140723_IMG_3689.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140830_Merah dan Putih Modern Lomba Perayaan 17 Agustus Flyer.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140856_Screenshot_20250814_203218.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140936_WhatsApp Image 2025-08-14 at 09.04.22.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508140950_Screenshot_2025-08-14-09-39-11-222_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508141131_Screenshot_2025-08-14-11-39-07-441_com.shopee.id.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508141223_WhatsApp Image 2025-08-14 at 12.47.41_09b3684f.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508141232_IMG_1603.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150113_Screenshot_2025-08-15-13-18-53-21_6012fa4d4ddec268fc5c7112cbb265e7.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150333_IMG_7895.PNG': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150338_Bukti.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150358_Screenshot_20250815_155106.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150410_20250815042706000816-1755250036152.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150442_IMG_9527.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150533_Screenshot_2025-08-15-17-28-51-603_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150601_top up.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150707_Screenshot_2025-08-15-19-51-52-07_78ed797590cf9a33dfc5e341b7a9537a.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150825_Screenshot_20250815-212233.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150833_20250815085116000051-1755222700710.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150851_WhatsApp Image 2025-08-15 at 08.14.28_cdd7bc14.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508150858_FT701635910.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508151014_FT701351570.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508151205_IMG_6983.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508151218_Screenshot_2025-08-15-00-11-25-55_1ab0a00014f71eecf9b70b7899363193.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508160217_1755327510858.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508160535_WhatsApp Image 2025-08-16 at 17.49.59 (1) - Copy.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508160537_Screenshot_2025-08-16-17-24-16-004_com.jago.digitalBanking.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508160954_IMG-20250816-WA0004.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508160958_Bukti.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508161144_too.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508161226_Screenshot_20250816_001823.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170402_D7183C74-F941-4AC4-8B42-8DCC106FB429.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170542_1755426869113.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170719_IMG-20250817-WA0006.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170809_WhatsApp Image 2025-08-17 at 20.11.48.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170810_Screenshot_20250817_203541.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170823_123.jpeg.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170841_IMG_1232.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170844_IMG_1232.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170845_IMG_1233.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170846_IMG_1232.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170853_tf.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170905_Screenshot_20250817-094113.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170923_Screenshot_2025-08-17-05-33-27-945_com.ss.android.ugc.trill.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508170928_IMG_3641.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508171026_IMG_1234.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180404_IMG_1236.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180453_bukti bayar to skb stmkg speedu.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180457_IMG_2686.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180514_IMG-20250818-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180550_IMG-20250818-WA0000.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180552_20250818_173457.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180633_1755517155944.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180734_WhatsApp Image 2025-08-18 at 07.50.13.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180820_20250818083751000311-1755524314735.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180836_Screenshot_2025-08-18-08-47-56-051_id.co.bri.brimo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180853_photo_6131776619698834003_y.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180903_1755528667455 (1).jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508180940_20250818095640000933-1755485835123.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508181007_WhatsApp Image 2025-08-18 at 22.09.52_12649881.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508181110_bukti pembayaran.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508181121_20250818112010000139-1755490821820.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508181159_WhatsApp Image 2025-08-18 at 11.28.31.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508181241_WhatsApp Image 2025-08-18 at 12.53.38.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190358_20250819033350000674-1755592450267.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190429_WhatsApp Image 2025-08-19 at 16.23.24_a8e6c8ab.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190451_IMG_20250819_182109~2.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190514_IMG_2706.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190548_Screenshot_2025-08-19-16-59-27-749_com.shopee.id.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190551_Screenshot_2025-08-19-17-05-20-747_id.bni.wondr.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190637_20250819065635000184-1755604653166.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190639_Screenshot_2025-08-19-18-45-20-274_com.shopeepay.id.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190713_20250819065635000184-1755604653166.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190800_IMG-20250819-WA0043.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508190843_IMG-20250819-WA0016.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508191027_Screenshot_2025-08-19-10-42-10-07_695a3e3360687bccc4a9a6393aa0b60c.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508191052_IMG_1086.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508191122_WhatsApp Image 2025-08-19 at 11.24.26.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508191129_Screenshot_2025-08-19-23-53-58-71_f0d5010b4078101d669cabe708845c5e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508191209_Screenshot_20250819-120342.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508200113_IMG-20250820-WA0002.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508201118_Gambar WhatsApp 2025-08-20 pukul 23.08.56_0f1dc882.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508201151_IMG_8699.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508201217_IMG-20250820-WA0002.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210357_IMG_2960.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210410_WhatsApp Image 2025-08-21 at 04.14.10_e4a82166.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210601_WhatsApp Image 2025-08-21 at 18.37.01_bdbf20c2.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210620_WhatsApp Image 2025-08-21 at 20.47.46_75f11b31.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210639_WhatsApp Image 2025-08-21 at 18.47.03_d35f7f85.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210903_IMG-20250821-WA0003.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508210955_WhatsApp Image 2025-08-21 at 21.37.27.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508211000_Screenshot_2025-08-21-10-31-42-304_com.shopee.id.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508211045_Screenshot_2025-08-21-10-35-31-349_com.shopee.id.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508211213_WhatsApp Image 2025-08-21 at 12.16.39.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508220611_IMG-20250822-WA0043.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508220719_WhatsApp Image 2025-08-22 at 19.49.18.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508220755_WhatsApp Image 2025-08-22 at 19.21.02.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508221150_IMG-20250821-WA0015.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508230917_Bukti Pembayaran.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508230918_IMG-20250823-WA0023.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508231016_WhatsApp Image 2025-08-23 at 10.28.17_d5401f6e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240221_IMG-20250824-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240532_Screenshot_2025-08-24-17-19-55-35_27720e2149771be9c38696e952a9e0cb.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240900_IMG_6019.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240915_Screenshot_2025-08-24-11-20-04-103_com.bnc.finance.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240921_20250824_104904.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240941_IMG_6019.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508240958_Screenshot_2025-08-24-11-20-04-103_com.bnc.finance.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508241014_IMG-20250824-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508250419_IMG-20250825-WA0011.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508250652_BUKTI PEMBAYARAN.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508250745_Screenshot_2025-08-25-19-31-09-318_id.dana.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508250841_1000102868.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508251007_bukti bayar.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508251107_WhatsApp Image 2025-08-25 at 23.00.44_1c2e9c73.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508261152_20250826112451000987-1756182307844.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508280720_WhatsApp Image 2025-08-28 at 19.40.34_83e9b017.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508300532_Screenshot_2025-08-30-18-45-28-913_id.bni.wondr.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508300725_Screenshot_2025-08-30-18-45-28-913_id.bni.wondr.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508310653_WhatsApp Image 2025-08-31 at 18.34.21.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508310814_IMG-20250831-WA0000.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2508310948_ss skb.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509010248_IMG_Mon Sep 01 16_36_09 GMT+09_00 2025.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509010412_IMG_20250901_165644.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509010415_IMG_20250901_165644.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509010419_IMG_20250901_165644.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509010507_Screenshot_2025-09-01-18-52-42-980_com.gojek.gopay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509011047_WhatsApp Image 2025-09-01 at 09.47.41.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509020624_top up saldo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509020816_Screenshot_20250902_224226_BCA mobile.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509020840_Screenshot_2025-09-02-20-16-03-08_f0d5010b4078101d669cabe708845c5e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509020918_Screenshot_2025-09-02-22-39-22-83_f0d5010b4078101d669cabe708845c5e.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509021043_IMG_20250902_104326.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509030114_IMG-20250903-WA0011.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509030338_PHOTO-2025-09-03-15-11-57.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509030431_IMG_4907.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509030540_Gambar WhatsApp 2025-09-03 pukul 18.13.18_0e1e15fe.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509030848_WhatsApp Image 2025-09-03 at 20.17.20.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509031032_WhatsApp Image 2025-09-03 at 11.36.16 AM.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509041103_Screenshot_20250904_230633_GoPay.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509041245_WhatsApp Image 2025-09-04 at 12.33.11_6463d2d2.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050217_Screenshot_20250905_141940_BRImo.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050407_IMG_8817.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050409_IMG-20250903-WA0011.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050613_Screenshot_20250905-062404.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050643_IMG_2168.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050702_4AC6F697-7122-4E3E-92A1-E500BE817FF7.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050845_IMG-20250904-WA0006.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509050928_IMG-20250905-WA0001.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509051022_Gambar WhatsApp 2025-09-05 pukul 23.43.32_18507268.jpg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509060323_WhatsApp Image 2025-09-06 at 15.11.17.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/payment_confirmation/2509060918_WhatsApp Image 2025-09-06 at 21.36.00.jpeg': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073702Screenshot 2025-07-05 193647.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073827Screenshot 2025-07-05 193732.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073836Screenshot 2025-07-05 193800.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073845Screenshot 2025-07-05 193757.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073853Screenshot 2025-07-05 193753.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073900Screenshot 2025-07-05 193732.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705073929Screenshot 2025-07-05 193914.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250705074039Screenshot 2025-07-05 193806.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706035904Screenshot 2025-07-06 040203.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706035949Screenshot 2025-07-06 155816.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040036Screenshot 2025-07-06 160024.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040050Screenshot 2025-07-06 160044.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040128Screenshot 2025-07-06 160116.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040220Screenshot 2025-07-06 160212.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040310Screenshot 2025-07-06 160256.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040411Screenshot 2025-07-06 160404.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040534Screenshot 2025-07-06 160519.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040647Screenshot 2025-07-06 160637.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040757Screenshot 2025-07-06 160747.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040828Screenshot 2025-07-06 160819.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040911Screenshot 2025-07-06 160905.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706040935Screenshot 2025-07-06 160926.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706041042Screenshot 2025-07-06 161026.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706041804Picture1.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706041857Picture2.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093625Screenshot 2025-07-06 213555.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093750imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093912Screenshot 2025-07-06 213814.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093923Screenshot 2025-07-06 213824.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093939Screenshot 2025-07-06 213836.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093947Screenshot 2025-07-06 213848.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706093958Screenshot 2025-07-06 213857.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094452Screenshot 2025-07-06 214339.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094506Screenshot 2025-07-06 214356.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094519Screenshot 2025-07-06 214409.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094530Screenshot 2025-07-06 214417.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094538Screenshot 2025-07-06 214432.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094546Screenshot 2025-07-06 214441.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094854Screenshot 2025-07-06 214741.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094905Screenshot 2025-07-06 214749.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094943imagetools1.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706094953Screenshot 2025-07-06 214758.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706095003Screenshot 2025-07-06 214804.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706095011Screenshot 2025-07-06 214826.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250706095020Screenshot 2025-07-06 214836.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094735Screenshot 2025-07-05 193647.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094757Screenshot 2025-07-05 193732.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094806Screenshot 2025-07-05 193753.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094820Screenshot 2025-07-05 193757.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094829Screenshot 2025-07-05 193800.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094840Screenshot 2025-07-05 193806.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710094856Screenshot 2025-07-05 193914.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095045Screenshot 2025-07-06 155816.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095217Screenshot 2025-07-06 214741.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095328Picture1.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095405Picture2.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095452Screenshot 2025-07-06 160926.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095548Screenshot 2025-07-06 161026.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095622Screenshot 2025-07-06 214741.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095650Screenshot 2025-07-06 213555.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095722imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095802Screenshot 2025-07-10 215754.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095820Screenshot 2025-07-06 160747.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095830Screenshot 2025-07-06 160819.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710095857Screenshot 2025-07-06 160905.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100049Screenshot 2025-07-10 220039.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100201Screenshot 2025-07-06 160637.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100234Screenshot 2025-07-06 160256.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100310Screenshot 2025-07-06 160256.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100339Screenshot 2025-07-06 160404.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100408Screenshot 2025-07-06 160116.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250710100517Screenshot 2025-07-06 160212.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250711103929Screenshot 2025-07-11 222850.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250711104212Screenshot 2025-07-11 223037.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250711104441Screenshot 2025-07-11 223046.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250711104702Screenshot 2025-07-11 223059.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250711105040Screenshot 2025-07-11 223213.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712025736Screenshot 2025-07-12 145625.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712030407Screenshot 2025-07-12 150107.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712030728Screenshot 2025-07-12 150714.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712031040Screenshot 2025-07-12 151030.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712033355Screenshot 2025-07-12 153301.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712034013Screenshot 2025-07-12 153827.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712035338Screenshot 2025-07-12 155243.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712044317Screenshot 2025-07-12 164233.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712044456Screenshot 2025-07-12 164437.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712044718Screenshot 2025-07-12 164659.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712050526Screenshot 2025-07-12 170337.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712050819Screenshot 2025-07-12 170731.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712051412Screenshot 2025-07-12 171340.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712051624Screenshot 2025-07-12 171602.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712051840Screenshot 2025-07-12 171755.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712052851Screenshot 2025-07-12 172826.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712054025Screenshot 2025-07-12 174013.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712054147Screenshot 2025-07-12 174133.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712054351Screenshot 2025-07-12 174333.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712054522Screenshot 2025-07-12 174503.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712055510Screenshot 2025-07-12 175458.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712055735Screenshot 2025-07-12 175717.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712055927Screenshot 2025-07-12 175857.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712060121Screenshot 2025-07-12 180059.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712060215Screenshot 2025-07-12 180215.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250712060438Screenshot 2025-07-12 180416.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714045404Screenshot 2025-07-14 165352.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714045721Screenshot 2025-07-14 165717.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714045932Screenshot 2025-07-14 165930.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714050319Screenshot 2025-07-14 170307.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714053434Screenshot 2025-07-14 173430.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714053724Screenshot 2025-07-14 173657.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714053840Screenshot 2025-07-14 173814.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714054010Screenshot 2025-07-14 173950.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714054038imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250714054300Screenshot 2025-07-14 174226.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250718022349Screenshot 2025-07-18 022322.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250718023050Screenshot 2025-07-18 023044.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719013016Screenshot 2025-07-19 013007.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719014219Screenshot 2025-07-19 014217.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719015656Screenshot 2025-07-19 015624.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719020608Screenshot 2025-07-19 020610.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719021728Screenshot 2025-07-19 021655.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250719021749Screenshot 2025-07-19 021655.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803033633Screenshot 2025-08-02 130140.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803034348Screenshot 2025-08-03 034009.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803034417imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803035933Screenshot 2025-08-03 034158.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803040020imagetools1.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803040553Screenshot 2025-08-03 040545.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803071340Screenshot 2025-08-03 071330.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803071553imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803072036Screenshot 2025-08-03 072033.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803072430Screenshot 2025-08-03 072436.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803072901Screenshot 2025-08-03 072857.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803101344Screenshot 2025-08-03 221347.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803101538Screenshot 2025-08-03 221536.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803101848Screenshot 2025-08-03 221856.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803102416Screenshot 2025-08-03 222416.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250803103149Screenshot 2025-08-03 223157.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250804065916Screenshot 2025-08-04 065922.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250804072635Screenshot 2025-08-04 072628.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250804072901Screenshot 2025-08-04 072904.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250804112424Screenshot 2025-08-04 112415.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806083034Screenshot 2025-08-06 202959.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806091601Screenshot 2025-08-06 211535.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806091815Screenshot 2025-08-06 211415.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092035Screenshot 2025-08-06 212027.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092222Screenshot 2025-08-06 212210.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092311Screenshot 2025-08-06 212234.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092317Screenshot 2025-08-06 212242.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092323Screenshot 2025-08-06 212245.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092332Screenshot 2025-08-06 212248.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092338Screenshot 2025-08-06 212252.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092349Screenshot 2025-08-06 212301.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092543Screenshot 2025-08-06 212427.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092551Screenshot 2025-08-06 212446.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092559Screenshot 2025-08-06 212448.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092607Screenshot 2025-08-06 212451.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092614Screenshot 2025-08-06 212453.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092620Screenshot 2025-08-06 212456.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092734Screenshot 2025-08-06 212631.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092747Screenshot 2025-08-06 212640.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092755Screenshot 2025-08-06 212644.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092804Screenshot 2025-08-06 212647.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092810Screenshot 2025-08-06 212650.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092818Screenshot 2025-08-06 212653.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092824Screenshot 2025-08-06 212656.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806092839Screenshot 2025-08-06 212722.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806102809Screenshot 2025-08-06 222757.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806103134Screenshot 2025-08-06 223128.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806103515Screenshot 2025-08-06 223508.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806103845Screenshot 2025-08-06 223833.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104300Screenshot 2025-08-06 224253.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104803Screenshot 2025-08-06 224619.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104810Screenshot 2025-08-06 224631.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104816Screenshot 2025-08-06 224633.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104825Screenshot 2025-08-06 224636.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104832Screenshot 2025-08-06 224638.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104840Screenshot 2025-08-06 224641.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806104856Screenshot 2025-08-06 224657.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105058Screenshot 2025-08-06 224704.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105106Screenshot 2025-08-06 224747.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105114Screenshot 2025-08-06 224916.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105121Screenshot 2025-08-06 224920.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105136Screenshot 2025-08-06 224923.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105145Screenshot 2025-08-06 224927.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105157Screenshot 2025-08-06 224936.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105211Screenshot 2025-08-06 225003.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105232Screenshot 2025-08-06 225007.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105239Screenshot 2025-08-06 225010.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105249Screenshot 2025-08-06 225013.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105255Screenshot 2025-08-06 225025.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105303Screenshot 2025-08-06 225028.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806105312Screenshot 2025-08-06 225037.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111606Screenshot 2025-08-06 231527.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111618Screenshot 2025-08-06 231531.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111625Screenshot 2025-08-06 231535.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111632Screenshot 2025-08-06 231539.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111641Screenshot 2025-08-06 231542.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111652Screenshot 2025-08-06 231551.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250806111713Screenshot 2025-08-06 231703.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093722Screenshot 2025-08-11 212126.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093738Screenshot 2025-08-11 212133.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093745Screenshot 2025-08-11 212139.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093753Screenshot 2025-08-11 212146.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093802Screenshot 2025-08-11 212152.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093810Screenshot 2025-08-11 212156.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811093823Screenshot 2025-08-11 212207.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094204Screenshot 2025-08-11 212126.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094214Screenshot 2025-08-11 212133.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094318Screenshot 2025-08-11 212139.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094325Screenshot 2025-08-11 212146.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094330Screenshot 2025-08-11 212152.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094336Screenshot 2025-08-11 212156.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094347Screenshot 2025-08-11 212207.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094651Screenshot 2025-08-11 212216.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094758Screenshot 2025-08-11 212221.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094935Screenshot 2025-08-11 214812.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094942Screenshot 2025-08-11 214821.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094952Screenshot 2025-08-11 214827.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811094957Screenshot 2025-08-11 214833.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095009Screenshot 2025-08-11 214923.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095810Screenshot 2025-08-11 215038.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095836Screenshot 2025-08-11 215049.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095847Screenshot 2025-08-11 215054.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095856Screenshot 2025-08-11 215059.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095906Screenshot 2025-08-11 215103.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095915Screenshot 2025-08-11 215106.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811095927Screenshot 2025-08-11 215320.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100005Screenshot 2025-08-11 215327.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100019Screenshot 2025-08-11 215334.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100028Screenshot 2025-08-11 215339.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100036Screenshot 2025-08-11 215343.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100049Screenshot 2025-08-11 215347.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100101Screenshot 2025-08-11 215350.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100114Screenshot 2025-08-11 215357.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100133Screenshot 2025-08-11 215407.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100145Screenshot 2025-08-11 215411.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100151Screenshot 2025-08-11 215419.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100202Screenshot 2025-08-11 215424.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100213Screenshot 2025-08-11 215428.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100220Screenshot 2025-08-11 215431.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100229Screenshot 2025-08-11 215436.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100303Screenshot 2025-08-11 215443.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100313Screenshot 2025-08-11 215447.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100323Screenshot 2025-08-11 215450.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100336Screenshot 2025-08-11 215453.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100347Screenshot 2025-08-11 215453.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100355Screenshot 2025-08-11 215457.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100405Screenshot 2025-08-11 215500.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100412Screenshot 2025-08-11 215500.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100422Screenshot 2025-08-11 215512.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100446Screenshot 2025-08-11 215521.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100457Screenshot 2025-08-11 215523.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100504Screenshot 2025-08-11 215526.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100600Screenshot 2025-08-11 215528.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100608Screenshot 2025-08-11 215531.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100613Screenshot 2025-08-11 215533.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100628Screenshot 2025-08-11 215539.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100700Screenshot 2025-08-11 215546.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100712Screenshot 2025-08-11 215549.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100720Screenshot 2025-08-11 215552.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100728Screenshot 2025-08-11 215557.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100735Screenshot 2025-08-11 215600.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100743Screenshot 2025-08-11 215605.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100817Screenshot 2025-08-11 220809.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100838Screenshot 2025-08-11 215615.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100846Screenshot 2025-08-11 215618.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100852Screenshot 2025-08-11 215621.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100859Screenshot 2025-08-11 215626.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100913imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100928Screenshot 2025-08-11 215629.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100943Screenshot 2025-08-11 215633.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100950Screenshot 2025-08-11 215636.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250811100958Screenshot 2025-08-11 215645.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123349Screenshot 2025-08-12 003115.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123415Screenshot 2025-08-12 003109.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123441Screenshot 2025-08-12 003104.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123614Screenshot 2025-08-12 003100.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123633Screenshot 2025-08-12 003056.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250812123939Screenshot 2025-08-12 003918.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813014448Screenshot 2025-08-13 132925.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813014520Screenshot 2025-08-13 132935.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813014754Screenshot 2025-08-13 132956.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813014833Screenshot 2025-08-13 133000.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015041Screenshot 2025-08-13 134916.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015108Screenshot 2025-08-13 134921.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015307Screenshot 2025-08-13 135244.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015340Bimbingan_01_I8C_Akhmad Rizal Wakhid__41.21.0047.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015350Screenshot 2025-08-13 135254.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015647Screenshot 2025-08-13 135630.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813015820Screenshot 2025-08-13 135740.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813020203Screenshot 2025-08-13 140134.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813020246Screenshot 2025-08-13 140148.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813020447Screenshot 2025-08-13 140419.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813020613Screenshot 2025-08-13 140431.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813080933Screenshot 2025-08-13 200717.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813081034Screenshot 2025-08-13 200724.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813081127Screenshot 2025-08-13 200728.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813122115Screenshot 2025-08-13 122049.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813122218Screenshot 2025-08-13 122209.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813122826Screenshot 2025-08-13 122808.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813123225Screenshot 2025-08-13 123203.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813123252Screenshot 2025-08-13 123207.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813123617Screenshot 2025-08-13 123605.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813123633Screenshot 2025-08-13 123605.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813124052Screenshot 2025-08-13 124037.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813124315Screenshot 2025-08-13 124259.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250813124641Screenshot 2025-08-13 124632.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814031405Screenshot 2025-08-14 031350.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814032626Screenshot 2025-08-14 032608.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814033249Screenshot 2025-08-14 033223.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814034707Screenshot 2025-08-14 034652.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814034752Screenshot 2025-08-14 034745.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814035740Screenshot 2025-08-14 035718.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814040937Screenshot 2025-08-14 040927.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814043617Screenshot 2025-08-14 043609.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814043839Screenshot 2025-08-14 043807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814044654Screenshot 2025-08-14 044640.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814044816Screenshot 2025-08-14 044755.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814045519Screenshot 2025-08-14 045511.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814045548Bimbingan_01_I8C_Akhmad Rizal Wakhid__41.21.0047.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814045555Screenshot 2025-08-14 045511.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814045740Screenshot 2025-08-14 045734.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814050559Screenshot 2025-08-14 050543.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814052426Screenshot 2025-08-14 051826.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814054302Screenshot 2025-08-14 054253.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814054719Screenshot 2025-08-14 054710.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814055130Screenshot 2025-08-14 055053.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814055138Screenshot 2025-08-14 055047.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814055324Screenshot 2025-08-14 055236.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814081815Screenshot 2025-08-14 081801.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082016Screenshot 2025-08-14 081902.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082057imagetools0.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082230Screenshot 2025-08-14 082220.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082545Screenshot 2025-08-14 082410.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082715Screenshot 2025-08-14 082627.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082913Screenshot 2025-08-14 082852.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814082925Screenshot 2025-08-14 082858.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083236Screenshot 2025-08-14 083123.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083521Screenshot 2025-08-14 083503.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083535Screenshot 2025-08-14 083434.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083647Screenshot 2025-08-14 083503.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083910Screenshot 2025-08-14 083834.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814083921Screenshot 2025-08-14 083827.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814084024Screenshot 2025-08-14 084014.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814084237Screenshot 2025-08-14 084222.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814084256Screenshot 2025-08-14 084248.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814084559Screenshot 2025-08-14 084541.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814084717Screenshot 2025-08-14 084657.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814085159Screenshot 2025-08-14 085018.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814085448Screenshot 2025-08-14 085345.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814085739Screenshot 2025-08-14 085727.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814085806Screenshot 2025-08-14 085759.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814085904Screenshot 2025-08-14 085854.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090027Screenshot 2025-08-14 090016.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090132Screenshot 2025-08-14 090119.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090258Screenshot 2025-08-14 090245.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090402Screenshot 2025-08-14 090350.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090511Screenshot 2025-08-14 090500.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090711Screenshot 2025-08-14 090659.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814090952Screenshot 2025-08-14 090935.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814091104Screenshot 2025-08-14 091054.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814091208Screenshot 2025-08-14 091153.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814091453Screenshot 2025-08-14 091352.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814091743Screenshot 2025-08-14 091635.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814091949Screenshot 2025-08-14 091934.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814092103Screenshot 2025-08-14 092018.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814092337Screenshot 2025-08-14 092305.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250814092442Screenshot 2025-08-14 092433.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815060906Screenshot 2025-08-15 060508.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815060933Screenshot 2025-08-15 060515.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815061907Screenshot 2025-08-15 061357.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815061955Screenshot 2025-08-15 061404.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062025Screenshot 2025-08-15 061426.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062047Screenshot 2025-08-15 061431.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062128Screenshot 2025-08-15 061451.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062140Screenshot 2025-08-15 061643.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062203Screenshot 2025-08-15 061647.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062245Screenshot 2025-08-15 061809.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062320Screenshot 2025-08-15 061815.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062427Screenshot 2025-08-15 061829.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062449Screenshot 2025-08-15 061846.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062706Screenshot 2025-08-15 061451.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815062817Screenshot 2025-08-15 061458.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815103847Screenshot 2025-08-15 103827.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815103942Screenshot 2025-08-15 103936.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815104025Screenshot 2025-08-15 104010.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815104402Screenshot 2025-08-15 104356.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815104452Screenshot 2025-08-15 104430.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815111223Screenshot 2025-08-15 110912.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815111306Screenshot 2025-08-15 110918.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815111340Screenshot 2025-08-15 110924.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815111416Screenshot 2025-08-15 110931.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250815111448Screenshot 2025-08-15 110936.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816095132Screenshot 2025-08-16 214926.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816095424Screenshot 2025-08-16 215415.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816095709Screenshot 2025-08-16 215638.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816100202Screenshot 2025-08-16 220152.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816100538Screenshot 2025-08-16 220526.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816100812Screenshot 2025-08-16 220802.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816101941Screenshot 2025-08-16 221807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816102002Screenshot 2025-08-16 221450.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816102054Screenshot 2025-08-16 221807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816102127Screenshot 2025-08-16 221550.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816102200Screenshot 2025-08-16 221813.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816102242Screenshot 2025-08-16 222236.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816103048Screenshot 2025-08-16 222834.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816103727Screenshot 2025-08-16 222834.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816103736Screenshot 2025-08-16 223151.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816104905Screenshot 2025-08-16 103749.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816104947Screenshot 2025-08-16 103754.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105033Screenshot 2025-08-16 103807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105123Screenshot 2025-08-16 103807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105139Screenshot 2025-08-16 103812.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105225Screenshot 2025-08-16 103854.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105259Screenshot 2025-08-16 103900.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105424Screenshot 2025-08-16 104012.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105452Screenshot 2025-08-16 104018.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105539Screenshot 2025-08-16 104043.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105602Screenshot 2025-08-16 104048.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105631Screenshot 2025-08-16 104102.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105657Screenshot 2025-08-16 104106.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105826Screenshot 2025-08-16 104214.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816105913Screenshot 2025-08-16 104218.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120458Screenshot 2025-08-16 120451.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120526Screenshot 2025-08-16 114516.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120556Screenshot 2025-08-16 114521.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120626Screenshot 2025-08-16 114525.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120644Screenshot 2025-08-16 114531.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120750Screenshot 2025-08-16 120738.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250816120819Screenshot 2025-08-16 114542.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817012105Screenshot 2025-08-17 132054.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817012115Screenshot 2025-08-17 132045.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817012342Screenshot 2025-08-17 132151.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817012401Screenshot 2025-08-17 132151.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817012504Screenshot 2025-08-17 132054.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817014929Screenshot 2025-08-17 133226.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817015341Screenshot 2025-08-17 133841.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817015835Screenshot 2025-08-17 135814.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817015927Screenshot 2025-08-17 135826.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817023934Screenshot 2025-08-17 143932.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817025043Screenshot 2025-08-17 145023.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817025052Screenshot 2025-08-17 145035.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817025110Screenshot 2025-08-17 145002.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817122725Screenshot 2025-08-17 002710.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817122815Screenshot 2025-08-17 002807.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817122914Screenshot 2025-08-17 002911.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817123028Screenshot 2025-08-17 003014.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250817123116Screenshot 2025-08-17 003108.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250824115003Screenshot 2025-08-24 232217.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250825122140Screenshot 2025-08-24 232233.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250825122200Screenshot 2025-08-24 232217.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250826061920blobid0.dat': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250826061923blobid1.dat': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250826061928blobid2.dat': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250826061929blobid3.dat': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250826061931blobid4.dat': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901031552Screenshot 2025-09-01 151525.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901031604Screenshot 2025-09-01 151243.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901031814Screenshot 2025-09-01 151239.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901031821Screenshot 2025-09-01 151243.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901031831Screenshot 2025-09-01 151525.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901032218Screenshot 2025-09-01 152213.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901032249Screenshot 2025-09-01 150932.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901032759Screenshot 2025-09-01 152638.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/questions/20250901032817Screenshot 2025-09-01 151108.png': Permission denied
+warning: unable to unlink 'storage/app/public/upload_files/settings/2507100211_2501020943_pngwing.com (3).png': Permission denied
+error: unable to create file storage/app/.gitignore: Permission denied
+error: unable to create file storage/app/public/.gitignore: Permission denied
+error: unable to unlink old 'storage/debugbar/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/cache/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/cache/data/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/sessions/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/testing/.gitignore': Permission denied
+error: unable to unlink old 'storage/framework/views/.gitignore': Permission denied
+error: unable to unlink old 'storage/logs/.gitignore': Permission denied
+Switched to a new branch 'vps'
+[2026-01-11 13:52:12]   Mengambil perubahan terbaru dari remote...
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+[2026-01-11 13:52:12]   Menambahkan file backup ke staging...
+[2026-01-11 13:52:12]   Membuat commit...
+[2026-01-11 13:52:12] ✓ Commit berhasil dibuat
+[2026-01-11 13:52:12]   Push ke remote repository...
+To https://github.com/IndraZ03/speedu-cbt.git
+   7b92c96..77f63a0  vps -> vps
+[2026-01-11 13:52:17] ✓ Backup berhasil di-push ke GitHub
+[2026-01-11 13:52:17] Step 4: Membersihkan backup lebih dari 7 hari...
+[2026-01-11 13:52:17] ✓ Tidak ada backup lama yang perlu dihapus
+[2026-01-11 13:52:17] ==========================================
+[2026-01-11 13:52:17] BACKUP SELESAI!
+[2026-01-11 13:52:17] File: /var/www/html/speedu-cbt/database-backups/speedukedinasanku_20260111_135206.sql.gz
+[2026-01-11 13:52:17] ==========================================
+[2026-01-11 13:52:17] 
