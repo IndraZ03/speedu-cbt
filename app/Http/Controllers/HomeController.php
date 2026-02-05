@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Models\Testimonial;
+use App\Models\Program;
 use App\Http\Requests\PhysicalCalculationRequest;
 
 class HomeController extends Controller
@@ -12,7 +14,10 @@ class HomeController extends Controller
     {
         $setting = Setting::first() ?? [];
         if($setting && $setting->theme != 0) {
-            return view('landing_page.theme_'.$setting->theme.'.index', compact('setting'));
+            $testimonials = Testimonial::active()->get();
+            $programs = Program::active()->get()->groupBy('category');
+            
+            return view('landing_page.theme_'.$setting->theme.'.index', compact('setting', 'testimonials', 'programs'));
         } else {
             return redirect()->route('login');
         }

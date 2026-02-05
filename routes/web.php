@@ -41,6 +41,8 @@ use App\Http\Controllers\Admin\Transaction\BankController;
 use App\Http\Controllers\Admin\Transaction\VoucherController;
 use App\Http\Controllers\Admin\Transaction\TransactionController;
 use App\Http\Controllers\Admin\User\AccountBalanceController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ProgramController;
 
 use App\Http\Controllers\Admin\Region\RegionController;
 
@@ -182,6 +184,13 @@ Route::group(['middleware' => ['auth', 'admin', 'accountIsActive']], function ()
         Route::get('transactions/{transaction}/invoice', [TransactionController::class, 'invoice'])->name('transactions.invoice');
 
         Route::resource('account-balances', AccountBalanceController::class)->only(['index', 'show', 'update']);
+
+        // Testimonials management
+        Route::resource('testimonials', TestimonialController::class)->except(['show']);
+
+        // Programs management
+        Route::resource('programs', ProgramController::class)->except(['show']);
+        Route::post('programs/{id}/duplicate', [ProgramController::class, 'duplicate'])->name('programs.duplicate');
     });
 });
 

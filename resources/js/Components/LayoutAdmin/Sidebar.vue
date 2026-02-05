@@ -160,11 +160,11 @@
                     </Link>
                 </li>
                 <li>
-                    <Link href="/admin/video-modules" class="menu-clicked">
+                    <Link href="admin/testimonials" class="menu-clicked">
                         <div class="parent-icon">
                             <i class="bx bx-video-recording"></i>
                         </div>
-                        <div class="menu-title">Video Pembelajaran</div>
+                        <div class="menu-title">Testimoni</div>
                     </Link>
                 </li>
             </div>

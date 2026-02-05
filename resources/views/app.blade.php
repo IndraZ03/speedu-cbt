@@ -53,8 +53,13 @@
     <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 
+    @if(config('services.midtrans.isProduction'))
     <script type="text/javascript" src="https://app.midtrans.com/snap/snap.js"
-        data-client-key="{{ config('services.midtrans.serverKey') }}"></script>
+        data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
+    @else
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
+    @endif
 </body>
 
 </html>

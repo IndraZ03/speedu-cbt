@@ -208,7 +208,7 @@
                         <div class="col-12">
                             <label class="form-label">Deskripsi</label>
                             <Editor
-                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
+                                api-key="env('TINYMCE_API_KEY')"
                                 v-model="form.description"
                                 :init="{
                                     images_upload_url: '/upload',

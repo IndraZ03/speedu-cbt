@@ -557,19 +557,55 @@ export default {
         };
 
         const pay = () => {
+            if (!props.transaction.snap_token) {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Token pembayaran tidak ditemukan. Silakan refresh halaman.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
+                return;
+            }
+            
             window.snap.pay(props.transaction.snap_token, {
-                onSuccess: () => {
+                onSuccess: (result) => {
+                    console.log('Payment Success:', result);
                     Inertia.post(`/user/account-balances/pay`, {
                         transaction_id: props.transaction.id,
                         payment_method: "automatic_transfer_midtrans",
                     });
                 },
-                onPending: () => {
-                    this.$inertia.reload();
+                onPending: (result) => {
+                    console.log('Payment Pending:', result);
+                    Swal.fire({
+                        title: "Pembayaran Pending",
+                        text: "Silakan selesaikan pembayaran Anda.",
+                        icon: "info",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        Inertia.reload();
+                    });
                 },
-                onError: () => {
-                    this.$inertia.visit($page.props.setting.app_url);
+                onError: (result) => {
+                    console.log('Payment Error:', result);
+                    Swal.fire({
+                        title: "Pembayaran Gagal",
+                        text: "Terjadi kesalahan saat memproses pembayaran.",
+                        icon: "error",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        Inertia.reload();
+                    });
                 },
+                onClose: () => {
+                    console.log('Payment popup closed');
+                    Swal.fire({
+                        title: "Pembayaran Dibatalkan",
+                        text: "Anda menutup popup pembayaran sebelum menyelesaikan transaksi.",
+                        icon: "warning",
+                        confirmButtonText: "OK",
+                    });
+                }
             });
         };
 

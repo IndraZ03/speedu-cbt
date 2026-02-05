@@ -15,3 +15,8 @@ yarn-error.log
 /.vscode
 composer-lock.json
 package-lock.json
+
+# Auto Backup Logs
+scripts/backup.log
+scripts/cron.log
+database-backups/*.sql

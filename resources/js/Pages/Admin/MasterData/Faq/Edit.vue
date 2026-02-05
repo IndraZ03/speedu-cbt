@@ -66,7 +66,7 @@
                         <div class="col-12">
                             <label class="form-label"><b>Jawaban</b></label>
                             <Editor
-                                api-key="hi3ys08prms6df2wgucv89v4f1arfs390fjn579enynrtsbr"
+                                api-key="env('TINYMCE_API_KEY')"
                                 v-model="form.answer"
                                 :init="{
                                     automatic_uploads: true,
