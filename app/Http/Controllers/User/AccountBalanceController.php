@@ -80,7 +80,9 @@ class AccountBalanceController extends Controller
                                 'quantity' => 1,
                                 'name' => 'Top Up Saldo ' . $transaction->code,
                             ]
-                        ]
+                        ],
+                        // Hanya aktifkan GoPay dan QRIS
+                        'enabled_payments' => ['gopay', 'shopeepay', 'qris']
                     ];
 
                     $snapToken = Snap::getSnapToken($payload);

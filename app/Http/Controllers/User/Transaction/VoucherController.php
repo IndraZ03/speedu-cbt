@@ -97,7 +97,9 @@ class VoucherController extends Controller
                                 'quantity' => 1,
                                 'name' => Str::limit($transaction->description, 40)
                             ]
-                        ]
+                        ],
+                        // Hanya aktifkan GoPay dan QRIS
+                        'enabled_payments' => ['gopay', 'shopeepay', 'qris']
                     ];
 
                     $snapToken = Snap::getSnapToken($payload);

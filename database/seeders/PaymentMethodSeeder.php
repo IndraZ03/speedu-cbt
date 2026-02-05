@@ -22,12 +22,12 @@ class PaymentMethodSeeder extends Seeder
             ],
             [
                 'code' => 'manual_transfer',
-                'description' => 'Transfer Manual (Dibutuhkan Konfirmasi)',
+                'description' => 'Transfer Bank Manual (menunggu Konfirmasi)',
                 'is_active' => 1,
             ],
             [
                 'code' => 'automatic_transfer_midtrans',
-                'description' => 'Transfer Otomatis (Tanpa Konfirmasi)',
+                'description' => 'Transfer Otomatis/QRIS (Tidak perlu menunggu konfirmasi)',
                 'is_active' => 1,
             ],
             [
