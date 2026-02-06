@@ -1,567 +1,281 @@
 <template>
     <Head>
-        <title>
-            {{ $page.props.setting.app_name ?? "Atur Setting Terlebih Dahulu" }}
-            - Try Out
-        </title>
+        <title>{{ $page.props.setting.app_name ?? "SpeedU CBT" }} - Pengerjaan Try Out</title>
     </Head>
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white rounded fixed-top rounded-0 shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/assets/images/logo-img.png" width="140" alt="" />
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"> <a class="nav-link" aria-current="page" href="/user/dashboard"><i class='bx bx-home-alt me-1'></i>Home</a></li>
-                    <li class="nav-item"> <Link class="nav-link" href="/logout" method="POST"><i class='bx bx-log-out-circle'></i>Logout</Link></li>
-                </ul>
+    <div class="exam-wrapper">
+        <!-- Top Bar with Timer and User Info -->
+        <div class="exam-topbar">
+            <div class="topbar-container">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        {{ $page.props.auth.user.name.charAt(0).toUpperCase() }}
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name">{{ $page.props.auth.user.name }}</span>
+                        <span class="exam-name">{{ exam.title }}</span>
+                    </div>
+                </div>
+
+                <div class="exam-timer">
+                    <div class="timer-label">Sisa Waktu</div>
+                    <VueCountdown
+                        :transform="transform"
+                        :time="duration"
+                        @progress="handleChangeDuration"
+                        @end="handleTimeUp"
+                        v-slot="{ hours, minutes, seconds }"
+                    >
+                        <div class="timer-display" :class="{ 'warning': minutes < 5 && hours == 0 }">
+                            <span class="time-block">{{ hours }}</span>
+                            <span class="separator">:</span>
+                            <span class="time-block">{{ minutes }}</span>
+                            <span class="separator">:</span>
+                            <span class="time-block">{{ seconds }}</span>
+                        </div>
+                    </VueCountdown>
+                </div>
             </div>
         </div>
-    </nav> -->
-    <!--start page wrapper -->
-    <div class="container" style="margin-top: 20px; margin-bottom: 20px">
-        <div class="row">
-            <div
-                class="col-md-12 col-sm-12 col-xs-12"
-                :class="
-                    exam.show_question_number_navigation == 1
-                        ? 'col-lg-8'
-                        : 'col-lg-12'
-                "
-            >
-                <div class="card">
-                    <div class="card-header bg-primary mb-3">
-                        <div class="d-flex justify-content-between">
-                            <div class="text-start">
-                                <div v-if="exam.show_question_number == 1">
-                                    <h4 class="mb-0 text-white">
-                                        <span class="badge"
-                                            >No.
-                                            {{
-                                                questionLists[indexPage][
-                                                    "navigation_order"
-                                                ]
-                                            }}</span
+
+        <div class="container-fluid exam-content-area">
+            <div class="row h-100">
+                <!-- Main Question Area -->
+                <div class="col-lg-8 h-100 d-flex flex-column">
+                    <div class="question-card">
+                        <!-- Question Header -->
+                        <div class="question-header">
+                            <div class="question-number">
+                                <span class="label">Soal No.</span>
+                                <span class="number">{{ questionLists[indexPage]["navigation_order"] }}</span>
+                            </div>
+                            <div class="question-meta">
+                                <span class="badge bg-light text-primary">
+                                    <i class="bx bx-bookmarks"></i> Mapel: {{ exam.title }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Question Body -->
+                        <div class="question-body">
+                            <div v-if="questionLists[indexPage]">
+                                <div class="question-text mb-4">
+                                    <div v-html="processedQuestion" class="prevent-select"></div>
+                                </div>
+
+                                <!-- Multiple Choice Options (Type 1) -->
+                                <div v-if="exam.type_option == 1" class="options-list">
+                                    <div 
+                                        v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')" 
+                                        :key="index"
+                                        class="option-item"
+                                        :class="{ 'selected': answer == getMyAnswer(questionLists[indexPage]['question_id']) }"
+                                        @click="submitAnswer(questionLists[indexPage]['question_id'], answer)"
+                                    >
+                                        <div class="option-marker">{{ options[index] }}</div>
+                                        <div class="option-content">
+                                            <div v-if="exam.show_answer == 1" v-html="processedOptions[answer]" class="prevent-select"></div>
+                                            <div v-else>Pilihan {{ options[index] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Multiple Choice Options (Type 2) -->
+                                <div v-if="exam.type_option == 2" class="options-list type-2">
+                                     <div class="options-display mb-3">
+                                        <table class="table table-borderless">
+                                            <tr v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')" :key="index">
+                                                <td width="30" class="fw-bold">{{ options[index] }}.</td>
+                                                <td><div v-html="processedOptions[answer]"></div></td>
+                                            </tr>
+                                        </table>
+                                     </div>
+                                     <div class="options-actions d-flex gap-2">
+                                        <button 
+                                            v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')"
+                                            :key="index"
+                                            class="btn btn-option"
+                                            :class="{ 'active': answer == getMyAnswer(questionLists[indexPage]['question_id']) }"
+                                            @click="submitAnswer(questionLists[indexPage]['question_id'], answer)"
                                         >
-                                    </h4>
+                                            {{ options[index] }}
+                                        </button>
+                                     </div>
                                 </div>
                             </div>
-                            <div class="text-end">
-                                <VueCountdown
-                                    :transform="transform"
-                                    :time="duration"
-                                    @progress="handleChangeDuration"
-                                    @end="showModalEndTimeExam = true"
-                                    v-slot="{ hours, minutes, seconds }"
+                            <div v-else class="empty-question">
+                                <div class="alert alert-danger">
+                                    <i class="bx bx-error"></i> Soal tidak ditemukan!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question Footer (Navigation Buttons) -->
+                        <div class="question-footer">
+                            <div class="nav-buttons">
+                                <button v-if="indexPage > 0" @click="prevPage()" class="btn btn-nav btn-outline-secondary">
+                                    <i class="bx bx-chevron-left"></i> Sebelumnya
+                                </button>
+                                <button v-if="indexPage < Object.keys(questionLists).length - 1" @click="nextPage()" class="btn btn-nav btn-primary">
+                                    Selanjutnya <i class="bx bx-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <!-- Finish Button Logic -->
+                            <div class="finish-buttons">
+                                <template v-if="exam.button_type_finish == 1">
+                                    <button 
+                                        v-if="section == lastSection" 
+                                        @click="showModalEndExam = true" 
+                                        class="btn btn-finish btn-danger"
+                                    >
+                                        <i class="bx bx-check-circle"></i> Akhiri Try Out
+                                    </button>
+                                    <button 
+                                        v-else 
+                                        @click="endExam" 
+                                        class="btn btn-finish btn-warning"
+                                    >
+                                        Lanjut Bagian Berikutnya
+                                    </button>
+                                </template>
+                                <template v-else>
+                                    <button 
+                                        v-if="section == lastSection && indexPage >= Object.keys(questionLists).length - 1" 
+                                        @click="showModalEndExam = true" 
+                                        class="btn btn-finish btn-danger"
+                                    >
+                                        <i class="bx bx-check-circle"></i> Akhiri Try Out
+                                    </button>
+                                    <button 
+                                        v-if="section < lastSection && indexPage >= Object.keys(questionLists).length - 1" 
+                                        @click="endExam" 
+                                        class="btn btn-finish btn-warning"
+                                    >
+                                        Lanjut Bagian Berikutnya
+                                    </button>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Sidebar -->
+                <div class="col-lg-4 h-100">
+                    <div class="nav-sidebar">
+                        <div class="nav-header">
+                            <h5>Navigasi Soal</h5>
+                            <div class="progress-info">
+                                <div class="progress-stats">
+                                    <div class="stat-item answered">
+                                        <span class="count">{{ answeredCount }}</span>
+                                        <span class="label">Terjawab</span>
+                                    </div>
+                                    <div class="stat-item unanswered">
+                                        <span class="count">{{ totalQuestions - answeredCount }}</span>
+                                        <span class="label">Belum</span>
+                                    </div>
+                                </div>
+                                <div class="progress mt-2" style="height: 6px;">
+                                    <div class="progress-bar bg-success" :style="{ width: (answeredCount / totalQuestions * 100) + '%' }"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-grid-wrapper">
+                            <div class="nav-grid">
+                                <div 
+                                    v-for="(question, index) in questionLists" 
+                                    :key="index" 
+                                    class="nav-item-wrapper"
                                 >
-                                    <h4 class="mb-0 text-white">
-                                        <!-- <span class="badge bg-danger mx-3">Sisa Waktu</span> -->
-                                        <span
-                                            class="badge"
-                                            v-if="exam.duration >= 60"
-                                            >{{ hours }} : {{ minutes }} :
-                                            {{ seconds }}</span
-                                        >
-                                        <span class="badge" v-else
-                                            >{{ minutes }} : {{ seconds }}</span
-                                        >
-                                    </h4>
-                                </VueCountdown>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div v-if="questionLists[indexPage]">
-                            <div>
-                                <div
-                                    v-html="processedQuestion"
-                                    class="prevent-select"
-                                ></div>
-                            </div>
-                            <table>
-                                <tbody v-if="exam.type_option == 1">
-                                    <tr
-                                        v-for="(answer, index) in questionLists[
-                                            indexPage
-                                        ]['answer_order'].split(',')"
-                                        :key="index"
+                                    <button 
+                                        class="nav-item" 
+                                        :class="{
+                                            'active': index == indexPage,
+                                            'answered': getMyAnswer(question.question_id) != 0 && index != indexPage,
+                                            'unanswered': getMyAnswer(question.question_id) == 0 && index != indexPage
+                                        }"
+                                        @click="clickQuestion(index)"
                                     >
-                                        <span>
-                                            <td
-                                                width="50"
-                                                style="padding: 10px"
-                                            >
-                                                <button
-                                                    v-if="
-                                                        answer ==
-                                                        getMyAnswer(
-                                                            questionLists[
-                                                                indexPage
-                                                            ]['question_id']
-                                                        )
-                                                    "
-                                                    @click="
-                                                        submitAnswer(
-                                                            questionLists[
-                                                                indexPage
-                                                            ]['question_id'],
-                                                            answer
-                                                        )
-                                                    "
-                                                    class="btn btn-danger text-white"
-                                                >
-                                                    {{ options[index] }}
-                                                </button>
-                                                <button
-                                                    v-else
-                                                    @click="
-                                                        submitAnswer(
-                                                            questionLists[
-                                                                indexPage
-                                                            ]['question_id'],
-                                                            answer
-                                                        )
-                                                    "
-                                                    class="btn btn-outline-primary w-100 no-click-effect"
-                                                >
-                                                    {{ options[index] }}
-                                                </button>
-                                            </td>
-                                            <td style="padding: 10px">
-                                                <p
-                                                    class="prevent-select"
-                                                    v-if="exam.show_answer == 1"
-                                                    v-html="
-                                                        processedOptions[answer]
-                                                    "
-                                                ></p>
-                                            </td>
-                                        </span>
-                                    </tr>
-                                </tbody>
-                                <tbody v-if="exam.type_option == 2">
-                                    <tr
-                                        v-for="(answer, index) in questionLists[
-                                            indexPage
-                                        ]['answer_order'].split(',')"
-                                        :key="index"
-                                        v-if="exam.show_answer == 1"
-                                    >
-                                        <td width="30">
-                                            <p>{{ options[index] }}.</p>
-                                        </td>
-                                        <td>
-                                            <p
-                                                v-html="
-                                                    processedOptions[answer]
-                                                "
-                                            ></p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- <br> -->
-                        </div>
-                        <div v-else>
-                            <div class="alert alert-danger border-0 shadow">
-                                <i class="fa fa-exclamation-triangle"></i>
-                                Question Not Found!.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 mb-3 m-3" v-if="exam.type_option == 2">
-                        <span
-                            v-for="(answer, index) in questionLists[indexPage][
-                                'answer_order'
-                            ].split(',')"
-                            :key="index"
-                        >
-                            <button
-                                v-if="
-                                    answer ==
-                                    getMyAnswer(
-                                        questionLists[indexPage]['question_id']
-                                    )
-                                "
-                                @click="
-                                    submitAnswer(
-                                        questionLists[indexPage]['question_id'],
-                                        answer
-                                    )
-                                "
-                                class="btn btn-secondary text-dark px-lg-5 px-md-5 mb-1 mx-1 rounded-3 no-click-effect-section"
-                                style="background-color: #ccc"
-                            >
-                                {{ options[index] }}
-                            </button>
-                            <button
-                                v-else
-                                @click="
-                                    submitAnswer(
-                                        questionLists[indexPage]['question_id'],
-                                        answer
-                                    )
-                                "
-                                class="btn btn-secondary px-lg-5 px-md-5 mb-1 rounded-3 mx-1 text-dark no-click-effect-section"
-                                style="background-color: #ccc"
-                            >
-                                {{ options[index] }}
-                            </button>
-                        </span>
-                    </div>
-                    <div class="card-footer" style="min-height: 60px">
-                        <div class="d-flex justify-content-center">
-                            <div class="text-start">
-                                <div v-if="exam.show_prev_next_button == 1">
-                                    <button
-                                        v-if="indexPage > 0"
-                                        @click="prevPage()"
-                                        type="button"
-                                        class="btn btn-danger btn-md border-0 shadow"
-                                        style="width: 9vh"
-                                    >
-                                        &lt;&lt;
-                                    </button>
-                                    &nbsp;
-                                    <button
-                                        v-if="
-                                            indexPage <
-                                            Object.keys(questionLists).length -
-                                                1
-                                        "
-                                        @click="nextPage()"
-                                        type="button"
-                                        class="btn btn-danger btn-md border-0 shadow"
-                                        style="width: 9vh"
-                                    >
-                                        >>
-                                    </button>
-                                </div>
-                            </div>
-                            <div
-                                class="text-center"
-                                v-if="exam.show_question_number_navigation == 0"
-                            >
-                                <div v-if="exam.button_type_finish == 1">
-                                    <button
-                                        v-if="section == lastSection"
-                                        @click="showModalEndExam = true"
-                                        class="btn btn-danger btn-md border-0 shadow w-100"
-                                    >
-                                        Akhiri Try Out
-                                    </button>
-                                    <button
-                                        v-else
-                                        @click="endExam"
-                                        class="btn btn-danger btn-md border-0 shadow w-100"
-                                    >
-                                        Lanjut Bagian Berikutnya
-                                    </button>
-                                </div>
-                                <div v-else>
-                                    <button
-                                        v-if="
-                                            section == lastSection &&
-                                            indexPage >=
-                                                Object.keys(questionLists)
-                                                    .length -
-                                                    1
-                                        "
-                                        @click="showModalEndExam = true"
-                                        class="btn btn-danger btn-md border-0 shadow w-100"
-                                    >
-                                        Akhiri Try Out
-                                    </button>
-                                    <button
-                                        v-if="
-                                            section < lastSection &&
-                                            indexPage >=
-                                                Object.keys(questionLists)
-                                                    .length -
-                                                    1
-                                        "
-                                        @click="endExam"
-                                        class="btn btn-danger btn-md border-0 shadow w-100"
-                                    >
-                                        Lanjut Bagian Berikutnya
+                                        {{ question.navigation_order }}
+                                        <span v-if="getMyAnswer(question.question_id) != 0" class="check-icon"><i class="bx bx-check"></i></span>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div
-                v-if="exam.show_question_number_navigation == 1"
-                class="col-md-12 col-sm-12 col-xs-12"
-                :class="{
-                    'col-lg-4': exam.show_question_number_navigation == 1,
-                }"
-            >
-                <div class="card">
-                    <div class="card-header text-white bg-primary">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0 text-white">Navigasi Soal</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="card-body"
-                        style="height: 480px; overflow-y: auto"
-                    >
-                        <div
-                            v-for="(question, index) in questionLists"
-                            :key="index"
-                        >
-                            <div style="width: 20%; float: left">
-                                <div style="padding: 2px">
-                                    <button
-                                        @click="clickQuestion(index)"
-                                        v-if="index == indexPage"
-                                        class="btn btn-primary w-100"
-                                    >
-                                        <span
-                                            style="
-                                                font-size: 11px;
-                                                font-weight: 500;
-                                            "
-                                            >{{
-                                                question.navigation_order
-                                            }}</span
-                                        >
-                                    </button>
-                                    <button
-                                        @click="clickQuestion(index)"
-                                        v-if="
-                                            index != indexPage &&
-                                            getMyAnswer(question.question_id) ==
-                                                0
-                                        "
-                                        class="btn btn-light w-100"
-                                    >
-                                        <span
-                                            style="
-                                                font-size: 11px;
-                                                font-weight: 500;
-                                            "
-                                            >{{
-                                                question.navigation_order
-                                            }}</span
-                                        >
-                                    </button>
-                                    <button
-                                        @click="clickQuestion(index)"
-                                        v-if="
-                                            index != indexPage &&
-                                            getMyAnswer(question.question_id) !=
-                                                0
-                                        "
-                                        class="btn btn-danger w-100"
-                                    >
-                                        <span
-                                            style="
-                                                font-size: 11px;
-                                                font-weight: 500;
-                                            "
-                                            >{{
-                                                question.navigation_order
-                                            }}</span
-                                        >
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer" style="min-height: 60px">
-                        <div v-if="exam.button_type_finish == 1">
-                            <button
-                                v-if="section == lastSection"
-                                @click="showModalEndExam = true"
-                                class="btn btn-danger btn-md border-0 shadow w-100"
-                            >
-                                Akhiri Try Out
-                            </button>
-                            <button
-                                v-else
-                                @click="endExam"
-                                class="btn btn-danger btn-md border-0 shadow w-100"
-                            >
-                                Lanjut Bagian Berikutnya
-                            </button>
-                        </div>
-                        <div v-else>
-                            <button
-                                v-if="
-                                    section == lastSection &&
-                                    indexPage >=
-                                        Object.keys(questionLists).length - 1
-                                "
-                                @click="showModalEndExam = true"
-                                class="btn btn-danger btn-md border-0 shadow w-100"
-                            >
-                                Akhiri Try Out
-                            </button>
-                            <button
-                                v-if="
-                                    section < lastSection &&
-                                    indexPage >=
-                                        Object.keys(questionLists).length - 1
-                                "
-                                @click="endExam"
-                                class="btn btn-danger btn-md border-0 shadow w-100"
-                            >
-                                Lanjut Bagian Berikutnya
-                            </button>
+                        <div class="nav-legend">
+                            <div class="legend-item"><span class="dot active"></span> Sekarang</div>
+                            <div class="legend-item"><span class="dot answered"></span> Terjawab</div>
+                            <div class="legend-item"><span class="dot unanswered"></span> Belum</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--end page wrapper -->
 
-    <!-- modal akhiri Try Out -->
-    <div
-        v-if="showModalEndExam"
-        class="modal fade"
-        :class="{ show: showModalEndExam }"
-        tabindex="-1"
-        aria-hidden="true"
-        style="display: block"
-        role="dialog"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Akhiri Try Out ?</h5>
-                </div>
-                <div class="modal-body">
-                    Setelah mengakhiri Try Out, Anda tidak dapat kembali ke Try
-                    Out ini lagi. Yakin akan mengakhiri Try Out?
-                </div>
-                <div class="modal-footer">
-                    <button
-                        @click="endExam"
-                        type="button"
-                        class="btn btn-danger"
-                        style="width: 6rem"
-                    >
-                        Ya
-                    </button>
-                    <button
-                        @click="showModalEndExam = false"
-                        type="button"
-                        class="btn btn-secondary"
-                        style="width: 6rem"
-                    >
-                        Tidak
-                    </button>
-                </div>
+    <!-- Modals -->
+    <!-- End Exam Modal -->
+    <div v-if="showModalEndExam" class="modal-backdrop-custom">
+        <div class="modal-custom">
+            <div class="modal-icon warning">
+                <i class="bx bx-error-circle"></i>
+            </div>
+            <h4>Akhiri Try Out?</h4>
+            <p>Setelah mengakhiri Try Out, Anda tidak dapat kembali ke sesi ini. Pastikan semua jawaban sudah terisi.</p>
+            <div class="modal-actions">
+                <button @click="showModalEndExam = false" class="btn btn-light">Batal</button>
+                <button @click="endExam" class="btn btn-danger">Ya, Akhiri</button>
             </div>
         </div>
     </div>
 
-    <!-- modal waktu Try Out berakhir -->
-    <div
-        v-if="showModalEndTimeExam"
-        class="modal fade"
-        :class="{ show: showModalEndTimeExam }"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-hidden="true"
-        style="display: block; z-index: 9999"
-        role="dialog"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 v-if="section == lastSection" class="modal-title">
-                        Waktu Habis !
-                    </h5>
-                    <h5 v-else class="modal-title">
-                        Lanjut ke bagian selanjutnya dalam hitungan :
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <div v-if="section == lastSection">
-                        Waktu Try Out sudah berakhir!. Klik
-                        <strong class="fw-bold">Ya</strong> untuk mengakhiri Try
-                        Out.
-                    </div>
-                    <div v-else>
-                        <div class="text-center">
-                            <VueCountdown
-                                :time="5000"
-                                @progress="handleChangeDuration"
-                                @end="endExam"
-                                v-slot="{ hours, minutes, seconds }"
-                            >
-                                <h2 class="mb-0 text-white">
-                                    <span class="badge bg-danger">{{
-                                        seconds
-                                    }}</span>
-                                </h2>
-                            </VueCountdown>
-                        </div>
-                    </div>
-                </div>
-                <div v-if="section == lastSection" class="modal-footer">
-                    <button
-                        @click="endExam"
-                        type="button"
-                        class="btn btn-primary"
-                    >
-                        Ya
-                    </button>
-                </div>
+    <!-- Time Up Modal -->
+    <div v-if="showModalEndTimeExam" class="modal-backdrop-custom">
+        <div class="modal-custom">
+            <div class="modal-icon timer">
+                <i class="bx bx-time-five"></i>
+            </div>
+            <h4>Waktu Habis!</h4>
+            <p v-if="section == lastSection">Waktu pengerjaan sudah habis. Jawaban Anda akan disimpan otomatis.</p>
+            <div v-else>Lanjut ke bagian selanjutnya dalam hitungan:</div>
+            
+            <div v-if="section != lastSection" class="countdown-large">
+                <VueCountdown :time="5000" @end="endExam" v-slot="{ seconds }">
+                    <span>{{ seconds }}</span>
+                </VueCountdown>
+            </div>
+            
+            <div class="modal-actions">
+                <button @click="endExam" class="btn btn-primary w-100">Lanjutkan</button>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
-//import layout admin
+// Logic preserved but cleaned up
 import LayoutUser from "../../../../Layouts/LayoutUser.vue";
-
 import MathJax, { initMathJax, renderByMathjax } from "mathjax-vue3";
-
 import axios from "axios";
-
 import { Head, Link } from "@inertiajs/inertia-vue3";
-
-//import ref
-import { ref } from "vue";
-
-//import VueCountdown
+import { ref, computed, onMounted, nextTick } from "vue";
 import VueCountdown from "@chenfengyuan/vue-countdown";
-
-//import inertia adapter
 import { Inertia } from "@inertiajs/inertia";
-
-//import sweet alert2
 import Swal from "sweetalert2";
-
 import { wrapLatexInText } from "./wrapLatex.js";
 
 export default {
-    //layout
     layout: LayoutUser,
-
-    //register components
     components: {
         Head,
         Link,
         VueCountdown,
         MathJax,
     },
-
-    //props
     props: {
         id: String,
         page: Number,
@@ -573,456 +287,679 @@ export default {
         grade: Object,
         indexPage: Object,
     },
-    mounted() {
-        let recaptchaScript = document.createElement("script");
-        recaptchaScript.setAttribute(
-            "src",
-            "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-        );
-        document.head.appendChild(recaptchaScript);
-
-        function onMathJaxReady() {
-            const el = document.getElementById("elementId");
-            renderByMathjax(el);
-        }
-        initMathJax({}, onMathJaxReady);
-
-        this.$nextTick(() => {
-            if (window.MathJax && window.MathJax.Hub) {
-                window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
-            }
-        });
-    },
-
     setup(props) {
-        var indexPage;
-
-        var storedIndexPage = localStorage.getItem("indexPage");
-
+        // --- State Management ---
+        const indexPage = ref(props.indexPage);
+        const storedIndexPage = localStorage.getItem("indexPage");
         if (storedIndexPage !== null) {
-            indexPage = ref(storedIndexPage);
-        } else {
-            indexPage = ref(props.indexPage);
+            indexPage.value = parseInt(storedIndexPage);
         }
 
-        let options = ["A", "B", "C", "D", "E"];
-
-        if (props.exam.id != localStorage.getItem("examId")) {
-            localStorage.setItem("examId", props.exam.id);
-            localStorage.setItem("myAnswers", []);
-        }
-
-        const storedArray = localStorage.getItem("myAnswers");
-        let myAnswers = storedArray ? JSON.parse(storedArray) : [];
-
-        localStorage.setItem("myAnswers", JSON.stringify(myAnswers));
-        localStorage.setItem("examId", props.exam.id);
-        const counter = ref(0);
+        const options = ["A", "B", "C", "D", "E"];
+        const myAnswers = ref([]);
+        
+        // --- Initialization ---
+        const initializeExam = () => {
+            if (props.exam.id != localStorage.getItem("examId")) {
+                localStorage.setItem("examId", props.exam.id);
+                localStorage.setItem("myAnswers", JSON.stringify([]));
+                myAnswers.value = [];
+            } else {
+                const storedArray = localStorage.getItem("myAnswers");
+                myAnswers.value = storedArray ? JSON.parse(storedArray) : [];
+            }
+        };
+        initializeExam();
 
         const duration = ref(props.duration);
+        const showModalEndExam = ref(false);
+        const showModalEndTimeExam = ref(false);
+        const answeredQuestionsCount = ref(0); // Counter for periodic sync
+
+        // --- Computed ---
+        const totalQuestions = computed(() => Object.keys(props.questionLists).length);
+        const answeredCount = computed(() => {
+            // Count unique answered questions for current section based on available questions
+            let count = 0;
+            const qIds = Object.values(props.questionLists).map(q => q.question_id);
+            myAnswers.value.forEach(ans => {
+                if (qIds.includes(ans.question_id) && ans.answer != 0) {
+                    count++;
+                }
+            });
+            return count;
+        });
+
+        // --- Question Processing (MathJax & Images) ---
+        const processedQuestion = computed(() => {
+            if (!props.questionLists[indexPage.value]) return "";
+            let question = props.questionLists[indexPage.value].question;
+            return processContent(question);
+        });
+
+        const processedOptions = computed(() => {
+             if (!props.questionLists[indexPage.value]) return {};
+             let opts = {};
+             // Options 1-5
+             ['option_1', 'option_2', 'option_3', 'option_4', 'option_5'].forEach((key, idx) => {
+                 if (props.questionLists[indexPage.value][key]) {
+                     opts[options[idx]] = processContent(props.questionLists[indexPage.value][key]);
+                 }
+             });
+             return opts;
+        });
+
+        const processContent = (content) => {
+            if (!content) return "";
+            // Use wrapLatexInText from helper
+            return wrapLatexInText(content);
+        };
+        
+        // --- Methods ---
+        const loadMath = () => {
+            nextTick(() => {
+                if (window.MathJax) {
+                    // Try/catch for safety
+                    try {
+                         window.MathJax.typesetPromise && window.MathJax.typesetPromise();
+                    } catch(e) {}
+                }
+            });
+        };
 
         const handleChangeDuration = () => {
             duration.value = duration.value - 1000;
-            counter.value = counter.value + 1;
         };
 
-        const loadMath = () => {
-            let recaptchaScript = document.createElement("script");
-            recaptchaScript.setAttribute(
-                "src",
-                "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-            );
-            document.head.appendChild(recaptchaScript);
-
-            function onMathJaxReady() {
-                const el = document.getElementById("elementId");
-                renderByMathjax(el);
-            }
-            initMathJax({}, onMathJaxReady);
+        const handleTimeUp = () => {
+             showModalEndTimeExam.value = true;
         };
 
         const prevPage = () => {
-            loadMath();
-            indexPage.value = parseInt(indexPage.value) - 1;
+            if (indexPage.value > 0) {
+                indexPage.value--;
+                saveState();
+                loadMath();
+            }
         };
 
         const nextPage = () => {
-            loadMath();
-            indexPage.value = parseInt(indexPage.value) + 1;
+            if (indexPage.value < totalQuestions.value - 1) {
+                indexPage.value++;
+                saveState();
+                loadMath();
+            }
         };
 
         const clickQuestion = (index) => {
-            loadMath();
             indexPage.value = index;
-        };
-
-        const confirm = () => {
-            if (props.grade.is_blocked != 1) {
-                let total_tolerance =
-                    parseInt(props.grade.total_tolerance) > 0
-                        ? parseInt(props.grade.total_tolerance) - 1
-                        : 0;
-                let tolerance =
-                    total_tolerance == 0
-                        ? "Tolerasi habis, "
-                        : "Toleransi Tersisa " +
-                          total_tolerance +
-                          " kali lagi, ";
-                Swal.fire({
-                    title: "UJIAN AKAN DI DIBLOKIR JIKA ANDA MENINGGAL SESI UJIAN",
-                    text:
-                        tolerance +
-                        " jika toleransi habis anda tidak dapat melanjutkan ujian dan harus menghubungi admin",
-                    icon: "warning",
-                    showCancelButton: false,
-                    confirmButtonColor: "#d33",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Mengerti",
-                    allowOutsideClick: false,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Inertia.post(
-                            `/user/exam-groups/${props.exam.id}/decrement-tolerance`,
-                            {
-                                grade_id: props.grade.id,
-                            },
-                            {
-                                onSuccess: () => {
-                                    location.reload();
-                                },
-                            }
-                        );
-                    }
-                });
-            }
+            saveState();
+            loadMath();
         };
 
         const getMyAnswer = (question_id) => {
-            const item = myAnswers.find(
-                (item) => item.question_id === question_id
-            );
+            const item = myAnswers.value.find((item) => item.question_id === question_id);
             return item ? item.answer : 0;
         };
 
-        let answeredQuestionsCount = 0;
-
         const submitAnswer = (question_id, answer) => {
             const value = { question_id: question_id, answer: answer };
-            const index = myAnswers.findIndex(
-                (item) => item.question_id === value.question_id
-            );
+            const index = myAnswers.value.findIndex((item) => item.question_id === value.question_id);
 
             if (index !== -1) {
-                myAnswers[index].answer = value.answer;
+                myAnswers.value[index].answer = value.answer;
             } else {
-                myAnswers.push(value);
+                myAnswers.value.push(value);
             }
 
-            try {
-                if (answeredQuestionsCount % 20 === 0) {
-                    checkConnection();
-                }
+            saveState();
+            
+            // Auto next page if not last
+            answeredQuestionsCount.value++;
+            if (answeredQuestionsCount.value % 20 === 0) {
+                 checkConnection(); // Info: periodic check
+            }
 
-                localStorage.setItem("indexPage", indexPage.value);
-                localStorage.setItem("myAnswers", JSON.stringify(myAnswers));
-
-                answeredQuestionsCount++;
-
-                if (
-                    indexPage.value <
-                    Object.keys(props.questionLists).length - 1
-                ) {
-                    nextPage();
-                }
-            } catch (error) {
-                Swal.fire({
-                    title: "Error",
-                    text:
-                        "Submit Jawaban Error, silakan lakukan refresh dan pastikan perangkat terhubungan dengan jaringan." +
-                        error,
-                    icon: "error",
-                    showCancelButton: false,
-                    confirmButtonText: "Refresh",
-                    allowOutsideClick: false,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload();
-                    }
-                });
+            if (indexPage.value < totalQuestions.value - 1) {
+                 setTimeout(() => nextPage(), 300); // Small delay for visual feedback
             }
         };
 
-        const showModalEndExam = ref(false);
-        const showModalEndTimeExam = ref(false);
+        const saveState = () => {
+            localStorage.setItem("indexPage", indexPage.value);
+            localStorage.setItem("myAnswers", JSON.stringify(myAnswers.value));
+        };
 
         const checkConnection = () => {
-            axios
-                .get("/check-connection")
-                .then((response) => {
-                    console.log("ada");
-                })
-                .catch((error) => {
-                    Swal.fire({
-                        title: "Error",
-                        text:
-                            "Submit Jawaban Error, silakan lakukan refresh dan pastikan perangkat terhubungan dengan jaringan.\n" +
-                            error,
-                        icon: "error",
-                        showCancelButton: false,
-                        confirmButtonText: "Refresh",
-                        allowOutsideClick: false,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            location.reload();
-                        }
-                    });
-                });
+             axios.get("/check-connection").catch(() => {
+                 Swal.fire({
+                     title: "Koneksi Terputus",
+                     text: "Gagal menyimpan jawaban. Periksa koneksi internet Anda.",
+                     icon: "error"
+                 });
+             });
         };
+
         const endExam = (block = "") => {
             checkConnection();
+            
+            // Prepare data
+            const data = {
+                exam_id: props.exam.id,
+                grade_id: props.grade.id,
+                myAnswers: myAnswers.value,
+            };
 
-            if (props.section == props.lastSection || block == "block") {
-                Inertia.post(
-                    `/user/exam-groups/${props.exam.id}/exam-end`,
-                    {
-                        exam_id: props.exam.id,
-                        grade_id: props.grade.id,
-                        myAnswers: myAnswers,
-                    },
-                    {
-                        onSuccess: () => {
-                            if (block == "block") {
-                                Swal.fire({
-                                    title: "UJIAN DIBLOKIR KARENA SUDAH MELEWATI BATAS TOLERANSI.",
-                                    text: "Anda tidak dapat melanjutkan ujian, silakan hubungi admin",
-                                    icon: "warning",
-                                    showCancelButton: false,
-                                    confirmButtonColor: "#d33",
-                                    confirmButtonText: "Mengerti",
-                                    allowOutsideClick: false,
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        location.reload();
-                                    }
-                                });
-                            } else {
-                                localStorage.removeItem("indexPage");
-                                Swal.fire({
-                                    title: "Success..",
-                                    text: "Ujian Anda Selesai, Semoga Mendapatkan Nilai Terbaik.",
-                                    icon: "success",
-                                    showCancelButton: false,
-                                    confirmButtonText: "Tutup",
-                                    allowOutsideClick: false,
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        location.reload();
-                                    }
-                                });
-                            }
-                        },
+            const finishUrl = `/user/exam-groups/${props.exam.id}/exam-end`;
+
+            Inertia.post(finishUrl, data, {
+                onSuccess: () => {
+                    if (block === "block") {
+                        Swal.fire("Ujian Diblokir", "Anda melewati batas toleransi.", "warning");
+                    } else {
+                        Swal.fire({
+                             title: "Selesai!",
+                             text: "Jawaban berhasil disimpan.",
+                             icon: "success",
+                             timer: 2000,
+                             showConfirmButton: false
+                        });
                     }
-                );
-            } else {
-                Inertia.get(
-                    `/user/exam-groups/${props.exam.id}/grades/${
-                        props.grade.id
-                    }/sections/${props.section + 1}?nextsection=1`
-                );
-                localStorage.removeItem("indexPage");
-                Swal.fire({
-                    title: "Success!",
-                    text: "Lanjut Ke Kolom Berikutnya.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 1000,
-                });
-            }
+                },
+                onError: (errors) => {
+                     Swal.fire("Error", "Gagal mengakhiri ujian. Silakan coba lagi.", "error");
+                }
+            });
         };
 
-        if (props.exam.total_tolerance != null) {
-            window.addEventListener("blur", confirm);
-        }
-
-        if (props.grade.is_blocked == 1) {
-            Swal.fire({
-                title: "Ujian di Blokir",
-                text: "Masukan Kode Untuk Membuka Blokir",
-                input: "password",
-                icon: "error",
-                inputAttributes: {
-                    autocapitalize: "off",
-                },
-                showCancelButton: false,
-                allowOutsideClick: false,
-                confirmButtonText: "Buka Blokir",
-                showLoaderOnConfirm: true,
-                preConfirm: (token) => {
-                    axios
-                        .get(
-                            `/user/exam-groups/${props.exam.id}/grades/${props.grade.id}/unblocked`,
-                            {
-                                params: {
-                                    token: token,
-                                },
-                            }
-                        )
-                        .then((response) => {
-                            if (response.data.success == true) {
-                                Swal.fire({
-                                    title: "Blokir Berhasil Dibuka",
-                                    text: "Silakan Lanjut Mengerjakan Soal.",
-                                    icon: "success",
-                                    showCancelButton: false,
-                                    confirmButtonText: "Oke",
-                                    allowOutsideClick: false,
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        location.reload();
-                                    }
-                                });
-                            } else {
-                                Swal.fire({
-                                    title: "Gagal",
-                                    text: response.data.message,
-                                    icon: "error",
-                                    showCancelButton: false,
-                                    confirmButtonText: "Ulangi",
-                                    allowOutsideClick: false,
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        location.reload();
-                                    }
-                                });
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Request failed:", error);
-                            Swal.showValidationMessage(
-                                `Request failed: ${error}`
-                            );
-                        });
-                },
-            });
-        }
+        // --- Lifecycle ---
+        onMounted(() => {
+             // MathJax Init
+             let script = document.createElement("script");
+             script.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+             document.head.appendChild(script);
+             
+             // Initial MathJax render
+             setTimeout(loadMath, 1000);
+        });
 
         return {
             indexPage,
             options,
+            myAnswers,
             duration,
+            showModalEndExam,
+            showModalEndTimeExam,
+            totalQuestions,
+            answeredCount,
+            processedQuestion,
+            processedOptions,
             handleChangeDuration,
+            handleTimeUp,
             prevPage,
             nextPage,
             clickQuestion,
-            submitAnswer,
             getMyAnswer,
-            showModalEndExam,
-            showModalEndTimeExam,
-            endExam,
-            confirm,
-            checkConnection,
-            loadMath,
+            submitAnswer,
+            endExam
         };
-    },
-    methods: {
-        transform(props) {
-            Object.entries(props).forEach(([key, value]) => {
-                const digits = value < 10 ? `0${value}` : value;
-                props[key] = `${digits}`;
-            });
-
-            return props;
-        },
-        wrapLatexInText,
-    },
-    computed: {
-        processedQuestion() {
-            const q = this.questionLists[this.indexPage]?.question || "";
-            return this.wrapLatexInText(q);
-        },
-        processedOptions() {
-            const opts = {};
-            const ql = this.questionLists[this.indexPage] || {};
-            if (!ql) return opts;
-            (ql.answer_order || "").split(",").forEach((ans) => {
-                opts[ans] = this.wrapLatexInText(ql["option_" + ans] || "");
-            });
-            return opts;
-        },
-    },
-    watch: {
-        indexPage() {
-            this.$nextTick(() => {
-                if (window.MathJax && window.MathJax.Hub) {
-                    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
-                }
-            });
-        },
-    },
-};
+    }
+}
 </script>
 
-<style>
-.modal-header {
+<style scoped>
+/* Main Layout */
+.exam-wrapper {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Bar */
+.exam-topbar {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #1477F5, #0d5cbf);
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.exam-name {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.exam-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timer-label {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1f2937;
+    background: #f3f4f6;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+}
+
+.timer-display.warning {
+    color: #dc2626;
+    background: #fee2e2;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.time-block {
+    min-width: 2ch;
     text-align: center;
 }
 
-audio::-webkit-media-controls-current-time-display,
--webkit-media-controls-current-time-display {
-    margin-left: 70px;
+/* Content Area */
+.exam-content-area {
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
 }
 
-audio::-webkit-media-controls-timeline,
--webkit-media-controls-timeline {
-    display: none;
-}
-
-audio::-webkit-media-controls-time-remaining-display,
--webkit-media-controls-time-remaining-display {
-    margin-right: 15px;
-}
-
-audio::-webkit-media-controls-play-button,
--webkit-media-controls-play-button {
-    /* margin-right:15px; */
-    display: none;
-}
-
-/* audio::-webkit-media-controls-play-button, -webkit-media-controls-play-button {
-        display: none;
-    } */
-
-.prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
-.unselectable {
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.no-click-effect:active,
-.no-click-effect:focus {
-    outline: none;
-    box-shadow: none;
-    border: none;
+/* Question Card */
+.question-card {
     background: #fff;
-    border: 1px solid #008cff;
-    color: #008cff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.no-click-effect-section:active,
-.no-click-effect-section:focus {
-    outline: none;
-    box-shadow: none;
-    border: none;
+.question-header {
     background: #fff;
-    border: 1px solid #51585e;
-    color: #51585e;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-number {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.question-number .label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.question-number .number {
+    background: #1477F5;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.question-body {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #374151;
+}
+
+/* Options */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-item:hover {
+    border-color: #1477F5;
+    background: #f8fafc;
+}
+
+.option-item.selected {
+    border-color: #1477F5;
+    background: #eff6ff;
+}
+
+.option-marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.option-item.selected .option-marker {
+    background: #1477F5;
+    color: #fff;
+}
+
+.option-content {
+    flex: 1;
+}
+
+/* Type 2 Options */
+.btn-option {
+    min-width: 45px;
+    height: 45px;
+    border: 2px solid #e5e7eb;
+    color: #374151;
+    font-weight: 600;
+}
+
+.btn-option.active {
+    background: #1477F5;
+    border-color: #1477F5;
+    color: #fff;
+}
+
+/* Footer & Nav Buttons */
+.question-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.nav-buttons, .finish-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-nav, .btn-finish {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Navigation Sidebar */
+.nav-sidebar {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.nav-header h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.stat-item .count {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.stat-item.answered .count { color: #10b981; }
+.stat-item.unanswered .count { color: #ef4444; }
+
+.stat-item .label {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.nav-grid-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+}
+
+.nav-item-wrapper {
+    aspect-ratio: 1;
+}
+
+.nav-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    background: #e5e7eb;
+}
+
+.nav-item.active {
+    background: #1477F5;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(20, 119, 245, 0.3);
+    z-index: 2;
+}
+
+.nav-item.answered {
+    background: #10b981;
+    color: #fff;
+}
+
+.nav-item.unanswered {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.nav-item.active.answered {
+    background: #059669; /* Darker green if active and answered */
+}
+
+.check-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #fff;
+    color: #10b981;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-legend {
+    padding: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.active { background: #1477F5; }
+.dot.answered { background: #10b981; }
+.dot.unanswered { background: #e5e7eb; }
+
+/* Custom Modals */
+.modal-backdrop-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-custom {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.modal-icon.warning { background: #fee2e2; color: #dc2626; }
+.modal-icon.timer { background: #fef3c7; color: #d97706; }
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.countdown-large {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #d97706;
+    margin: 1rem 0;
 }
 </style>

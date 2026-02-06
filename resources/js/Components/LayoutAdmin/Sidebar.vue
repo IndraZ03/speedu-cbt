@@ -22,9 +22,6 @@
                     }}
                 </h4>
             </div>
-            <div class="toggle-icon ms-auto">
-                <i class="bx bx-arrow-to-left"></i>
-            </div>
         </div>
         <!--navigation-->
         <!-- admin -->

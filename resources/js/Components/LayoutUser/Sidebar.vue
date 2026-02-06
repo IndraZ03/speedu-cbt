@@ -137,11 +137,7 @@
 						<i class="bx bx-right-arrow-alt"></i>Kategori Peminatan
 						</Link>
 					</li>
-					<li>
-						<Link href="user/history-practice-questions">
-						<i class="bx bx-right-arrow-alt"></i>Riwayat Try Out
-						</Link>
-					</li>
+				
 				</ul>
 			</li>
 			<li>
