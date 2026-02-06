@@ -1,0 +1,244 @@
+/* Modern Sidebar Styles - Theme Colors: #1477F5, #F8C62C */
+
+/* User Profile Card */
+.user-profile-card {
+    padding: 1rem !important;
+    margin: 0.5rem !important;
+    background: linear-gradient(135deg, #1477F5 0%, #0d5cbf 100%) !important;
+    border-radius: 16px !important;
+    list-style: none !important;
+}
+
+.profile-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #F8C62C, #e5b526);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-text {
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-role {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+}
+
+.balance-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.balance-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.balance-amount {
+    color: #F8C62C;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.btn-topup {
+    width: 100%;
+    padding: 0.5rem;
+    background: linear-gradient(135deg, #F8C62C, #e5b526);
+    color: #1f2937;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-topup:hover {
+    background: linear-gradient(135deg, #e5b526, #d4a520);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(248, 198, 44, 0.4);
+}
+
+/* Quick Help Button */
+.quick-help-btn {
+    padding: 0 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    list-style: none !important;
+}
+
+.help-link {
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem !important;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 12px;
+    color: #fff !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.help-link:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.help-icon {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.help-link span {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Modern Menu Label */
+.menu-label-modern {
+    padding: 0.5rem 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.label-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9ca3af;
+}
+
+/* Modern Menu Items */
+.menu-item-modern {
+    border-radius: 10px !important;
+    margin: 0.25rem 0.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.menu-item-modern:hover {
+    background: linear-gradient(135deg, rgba(20, 119, 245, 0.1), rgba(13, 92, 191, 0.1)) !important;
+    transform: translateX(5px);
+}
+
+.icon-gradient-purple {
+    background: linear-gradient(135deg, #1477F5, #0d5cbf) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Sidebar wrapper enhancements */
+.sidebar-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(20, 119, 245, 0.3) transparent;
+}
+
+.sidebar-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(20, 119, 245, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 119, 245, 0.5);
+}
+
+/* Modern Card Enhancements */
+.card {
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Page wrapper enhancements */
+.page-content {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Link Highlights */
+a.menu-clicked:hover,
+a.menu-clicked.active {
+    color: #1477F5 !important;
+}
+
+/* Button Primary Override */
+.btn-primary {
+    background: linear-gradient(135deg, #1477F5, #0d5cbf) !important;
+    border-color: #1477F5 !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0d5cbf, #0a4a9e) !important;
+    border-color: #0d5cbf !important;
+}
+
+/* Warning/Accent Button */
+.btn-warning {
+    background: linear-gradient(135deg, #F8C62C, #e5b526) !important;
+    border-color: #F8C62C !important;
+    color: #1f2937 !important;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #e5b526, #d4a520) !important;
+    border-color: #e5b526 !important;
+}

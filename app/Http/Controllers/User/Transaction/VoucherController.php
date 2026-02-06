@@ -9,6 +9,8 @@ use App\Repositories\Transaction\TransactionRepository;
 use App\Models\Transaction\Transaction;
 use App\Http\Requests\User\PaymentMethodRequest;
 use App\Models\UserMemberCategory;
+use App\Models\PromoCode;
+use App\Models\PromoCodeUsage;
 use Midtrans\Snap;
 use Carbon\Carbon;
 use DB;
@@ -58,8 +60,33 @@ class VoucherController extends Controller
 
             if (!$voucher) return abort('404', 'uppss....');
 
+            $originalPrice = $voucher->price_after_discount;
+            $discountAmount = 0;
+            $promoCode = null;
+
+            // Proses promo code jika ada
+            if ($request->promo_code) {
+                $promoCode = PromoCode::where('code', strtoupper($request->promo_code))->first();
+                
+                if ($promoCode) {
+                    $validation = $promoCode->isValid(Auth::id(), $originalPrice);
+                    
+                    if ($validation['valid']) {
+                        $discountAmount = $promoCode->calculateDiscount($originalPrice);
+                    } else {
+                        session()->flash('error', $validation['message']);
+                        return redirect()->back();
+                    }
+                } else {
+                    session()->flash('error', 'Kode promo tidak ditemukan.');
+                    return redirect()->back();
+                }
+            }
+
+            $finalPrice = $originalPrice - $discountAmount;
+
             if ($request->payment_method == 'account_balance') {
-                if ($voucher->price_after_discount > Auth::user()->account_balance) {
+                if ($finalPrice > Auth::user()->account_balance) {
                     session()->flash('error', 'Saldo Anda Tidak Cukup Untuk Membeli Latihan Soal, silakan Top Up saldo terlebih dahulu.');
                     return redirect()->back();
                 }
@@ -73,31 +100,54 @@ class VoucherController extends Controller
                 'payment_method' => $request->payment_method,
                 'active_period' => $voucher->active_period,
                 'period_type' => $voucher->period_type,
-                'total_payment' => $voucher->price_after_discount,
+                'total_payment' => $finalPrice,
                 'member_categories' => $voucher->member_categories,
                 'transaction_status' => 'pending'
             ]);
 
+            // Catat penggunaan promo code
+            if ($promoCode && $discountAmount > 0) {
+                PromoCodeUsage::create([
+                    'promo_code_id' => $promoCode->id,
+                    'user_id' => Auth::id(),
+                    'transaction_code' => $transaction->code,
+                    'discount_amount' => $discountAmount,
+                ]);
+                $promoCode->incrementUsage();
+            }
+
             if ($request->payment_method == 'automatic_transfer_midtrans') {
-                $snapToken = DB::transaction(function () use ($transaction) {
+                $snapToken = DB::transaction(function () use ($transaction, $discountAmount, $promoCode) {
+                    $itemDetails = [
+                        [
+                            'id' => $transaction->id,
+                            'price' => $transaction->total_payment + $discountAmount,
+                            'quantity' => 1,
+                            'name' => Str::limit($transaction->description, 40)
+                        ]
+                    ];
+
+                    // Tambahkan item diskon jika ada
+                    if ($discountAmount > 0 && $promoCode) {
+                        $itemDetails[] = [
+                            'id' => 'DISCOUNT-' . $promoCode->code,
+                            'price' => -$discountAmount,
+                            'quantity' => 1,
+                            'name' => 'Diskon (' . $promoCode->code . ')'
+                        ];
+                    }
+
                     $payload = [
                         'transaction_details' => [
                             'order_id' => $transaction->code,
-                            'gross_amount' => $transaction->total_payment
+                            'gross_amount' => (int) $transaction->total_payment
                         ],
                         'customer_details' => [
                             'first_name' => $transaction->user->name,
                             'email' => $transaction->user->email,
                             'phone' => $transaction->user && $transaction->user->student ? $transaction->user->student->phone_number : '',
                         ],
-                        'item_details' => [
-                            [
-                                'id' => $transaction->id,
-                                'price' => $transaction->total_payment,
-                                'quantity' => 1,
-                                'name' => Str::limit($transaction->description, 40)
-                            ]
-                        ],
+                        'item_details' => $itemDetails,
                         // Hanya aktifkan GoPay dan QRIS
                         'enabled_payments' => ['gopay', 'shopeepay', 'qris']
                     ];
@@ -127,14 +177,15 @@ class VoucherController extends Controller
                     'expired_date' => $transaction->expired_date
                 ]);
 
-                session()->flash('success', 'Pembelian Paket Voucher Dengan Saldo Berhasil.');
+                $discountMessage = $discountAmount > 0 ? ' Anda mendapat diskon Rp ' . number_format($discountAmount, 0, ',', '.') : '';
+                session()->flash('success', 'Pembelian Paket Voucher Dengan Saldo Berhasil.' . $discountMessage);
             } else {
                 session()->flash('success', 'Silakan untuk melakukan pembayaran.');
             }
 
             return redirect()->route('user.transactions.show', $transaction->id);
         } catch (\Exception $e) {
-            session()->flash('error', $e);
+            session()->flash('error', $e->getMessage());
             return redirect()->back();
         }
     }

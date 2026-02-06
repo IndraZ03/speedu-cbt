@@ -104,6 +104,16 @@ class TransactionRepository extends BaseRepository implements TransactionInterfa
         return $transactions;
     }
 
+    public function getRecentTransactionsByUser($limit = 5)
+    {
+        return $this->model
+            ->with(['examGroup', 'exam'])
+            ->where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->limit($limit)
+            ->get();
+    }
+
     public function getTotalTransactionToday()
     {
         return $this->model->whereDate('created_at', Carbon::now())->count();

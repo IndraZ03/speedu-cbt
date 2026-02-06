@@ -99,6 +99,47 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Kode Promo Section -->
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Kode Promo</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" v-model="form.promo_code" 
+                                                placeholder="Masukkan kode promo (opsional)" 
+                                                @input="form.promo_code = form.promo_code.toUpperCase()"
+                                                :class="{ 'is-invalid': promoError, 'is-valid': promoValid }">
+                                            <button type="button" class="btn btn-outline-primary" @click="validatePromoCode" :disabled="isValidating || !form.promo_code">
+                                                <span v-if="isValidating">
+                                                    <span class="spinner-border spinner-border-sm"></span>
+                                                </span>
+                                                <span v-else>Terapkan</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary" @click="removePromoCode" v-if="promoValid">
+                                                <i class="bx bx-x"></i>
+                                            </button>
+                                        </div>
+                                        <div v-if="promoError" class="text-danger small mt-1">{{ promoError }}</div>
+                                        <div v-if="promoValid" class="text-success small mt-1">
+                                            <i class="bx bx-check-circle"></i> {{ promoMessage }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ringkasan Harga -->
+                                <div class="row mb-3" v-if="discountAmount > 0">
+                                    <label class="col-sm-3 col-form-label">Diskon</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control text-success" :value="'- ' + formatPrice(discountAmount)" disabled style="background-color: #d4edda;">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" v-if="discountAmount > 0">
+                                    <label class="col-sm-3 col-form-label fw-bold">Total Bayar</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control fw-bold" :value="formatPrice(finalAmount)" disabled style="background-color: #fff; font-size: 1.2em;">
+                                    </div>
+                                </div>
+
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Metode Pembayaran</label>
                                     <div class="col-sm-9">
@@ -115,7 +156,12 @@
                                     <label class="col-sm-3 col-form-label"></label>
                                     <div class="col-sm-9">
                                         <div class="d-md-flex d-grid align-items-center gap-3">
-                                            <button class="btn btn-primary btn-sm px-4">Lanjutkan ke pembayaran</button>
+                                            <button class="btn btn-primary btn-sm px-4" :disabled="isSubmitting">
+                                                <span v-if="isSubmitting">
+                                                    <span class="spinner-border spinner-border-sm"></span> Memproses...
+                                                </span>
+                                                <span v-else>Lanjutkan ke pembayaran</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +183,7 @@
     import { Link } from '@inertiajs/inertia-vue3';
 
     //import reactive
-    import { reactive } from 'vue';
+    import { reactive, ref, computed } from 'vue';
 
     // import Head from Inertia
     import {
@@ -148,6 +194,7 @@
     import Swal from 'sweetalert2';
 
     import { Inertia } from '@inertiajs/inertia';
+    import axios from 'axios';
 
     export default {
         // layout
@@ -167,14 +214,68 @@
         setup(props) {
             const form = reactive({
                 payment_method: '',
+                promo_code: '',
             });
+
+            const isValidating = ref(false);
+            const isSubmitting = ref(false);
+            const promoValid = ref(false);
+            const promoError = ref('');
+            const promoMessage = ref('');
+            const discountAmount = ref(0);
+
+            const finalAmount = computed(() => {
+                return props.voucher.price_after_discount - discountAmount.value;
+            });
+
+            const validatePromoCode = async () => {
+                if (!form.promo_code) return;
+                
+                isValidating.value = true;
+                promoError.value = '';
+                promoValid.value = false;
+                
+                try {
+                    const response = await axios.post('/api/promo-code/validate', {
+                        code: form.promo_code,
+                        amount: props.voucher.price_after_discount
+                    });
+                    
+                    if (response.data.valid) {
+                        promoValid.value = true;
+                        discountAmount.value = response.data.discount_amount;
+                        promoMessage.value = `Kode promo berhasil! Diskon ${response.data.promo_code.discount_type === 'percentage' 
+                            ? response.data.promo_code.discount_value + '%' 
+                            : 'Rp ' + new Intl.NumberFormat('id-ID').format(response.data.promo_code.discount_value)}`;
+                    }
+                } catch (error) {
+                    promoError.value = error.response?.data?.message || 'Terjadi kesalahan saat memvalidasi kode promo.';
+                    discountAmount.value = 0;
+                } finally {
+                    isValidating.value = false;
+                }
+            };
+
+            const removePromoCode = () => {
+                form.promo_code = '';
+                promoValid.value = false;
+                promoError.value = '';
+                promoMessage.value = '';
+                discountAmount.value = 0;
+            };
 
             // submit method
             const submit = () => {
+                isSubmitting.value = true;
                 // send data to server
                 Inertia.post(`/user/vouchers/${props.voucher.id}/buy`, {
                     // data
                     payment_method: form.payment_method,
+                    promo_code: promoValid.value ? form.promo_code : null,
+                }, {
+                    onFinish: () => {
+                        isSubmitting.value = false;
+                    }
                 });
             }
 
@@ -182,6 +283,15 @@
             return {
                 form,
                 submit,
+                isValidating,
+                isSubmitting,
+                promoValid,
+                promoError,
+                promoMessage,
+                discountAmount,
+                finalAmount,
+                validatePromoCode,
+                removePromoCode,
             }
         },
         methods: {

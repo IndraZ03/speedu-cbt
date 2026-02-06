@@ -197,6 +197,12 @@
                     <div class="menu-title menu-clicked">Top Up Saldo</div>
                 </Link>
             </li>
+            <li>
+                <Link href="/admin/promo-codes">
+                    <div class="parent-icon"><i class="bx bx-purchase-tag"></i></div>
+                    <div class="menu-title menu-clicked">Kode Promo</div>
+                </Link>
+            </li>
             <li class="menu-label">Setting</li>
             <li>
                 <Link href="/admin/settings">
@@ -208,46 +214,47 @@
 
         <!-- user -->
         <ul class="metismenu" id="menu" v-if="$page.props.auth.user.level == 2">
-            <li
-                class="p-1"
-                v-if="
-                    $page.props.auth.user.member_type == 2 &&
-                    $page.props.setting.payment_methods.some(
-                        (item) => item.code === 'account_balance'
-                    )
-                "
-            >
-                <p class="text-center">
-                    <b>{{ $page.props.auth.user.name }}</b>
-                </p>
-
-                <p class="text-center">
-                    Saldo<br /><b
-                        >Rp.
-                        {{
-                            formatPrice($page.props.auth.user.account_balance)
-                        }}</b
-                    >
-                </p>
-                <button
-                    class="btn btn-primary radius-30 btn-sm"
-                    @click="topUp()"
-                >
-                    Top Up +
-                </button>
-            </li>
-            <li>
-                <a href="javascript:;" @click="openHelp()">
-                    <div class="parent-icon">
-                        <i class="bx bx-help-circle"></i>
+            <!-- Modern User Profile Card -->
+            <li class="user-profile-card" v-if="$page.props.auth.user.member_type == 2 && $page.props.setting.payment_methods.some((item) => item.code === 'account_balance')">
+                <div class="profile-card-inner">
+                    <div class="profile-avatar">
+                        <span class="avatar-text">{{ $page.props.auth.user.name.charAt(0).toUpperCase() }}</span>
                     </div>
-                    <div class="menu-title">Bantuan</div>
+                    <div class="profile-info">
+                        <span class="profile-name">{{ $page.props.auth.user.name }}</span>
+                        <span class="profile-role">{{ $page.props.auth.user.member_type == 2 ? 'Member' : 'User' }}</span>
+                    </div>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-label">
+                        <i class="bx bx-wallet"></i>
+                        Saldo Anda
+                    </div>
+                    <div class="balance-amount">Rp {{ formatPrice($page.props.auth.user.account_balance) }}</div>
+                    <button class="btn-topup" @click="topUp()">
+                        <i class="bx bx-plus"></i>
+                        Top Up Saldo
+                    </button>
+                </div>
+            </li>
+
+            <!-- Quick Help Button -->
+            <li class="quick-help-btn">
+                <a href="javascript:;" @click="openHelp()" class="help-link">
+                    <div class="help-icon">
+                        <i class="bx bx-support"></i>
+                    </div>
+                    <span>Butuh Bantuan?</span>
+                    <i class="bx bx-chevron-right"></i>
                 </a>
             </li>
-            <li class="menu-label">Navigation</li>
+
+            <li class="menu-label menu-label-modern">
+                <span class="label-text">Menu Utama</span>
+            </li>
             <li>
-                <Link href="/user/dashboard" class="menu-clicked">
-                    <div class="parent-icon">
+                <Link href="/user/dashboard" class="menu-clicked menu-item-modern">
+                    <div class="parent-icon icon-gradient-purple">
                         <i class="bx bx-home-circle"></i>
                     </div>
                     <div class="menu-title">Dashboard</div>

@@ -38,7 +38,7 @@ class DashboardController extends Controller
             'totalTransactionPaid' => number_format($this->transactionRepository->getTotalTransactionPaidByUser()),
             'totalTransactionDone' => number_format($this->transactionRepository->getTotalTransactionDoneByUser()),
             'totalTransactionFailed' => number_format($this->transactionRepository->getTotalTransactionFailedByUser()),
-            'transactions' => $this->transactionRepository->getAllPaginatedWithParamsByUser($request),
+            'transactions' => $this->transactionRepository->getRecentTransactionsByUser(5),
             'announcementSummaries' =>  (new announcementRepository())->getAnnouncementSummaries(),
             'totalDataInCategories' => Category::withCount(['exam', 'ExamGroup', 'module', 'videoModule'])->where('development_status', 'production')->orderBy('created_at', 'ASC')->get(),
             'vouchers' => $this->voucherRepository->getAllActivatedWithoutCategory()

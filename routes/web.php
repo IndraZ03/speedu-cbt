@@ -43,6 +43,7 @@ use App\Http\Controllers\Admin\Transaction\TransactionController;
 use App\Http\Controllers\Admin\User\AccountBalanceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\PromoCodeController;
 
 use App\Http\Controllers\Admin\Region\RegionController;
 
@@ -191,6 +192,9 @@ Route::group(['middleware' => ['auth', 'admin', 'accountIsActive']], function ()
         // Programs management
         Route::resource('programs', ProgramController::class)->except(['show']);
         Route::post('programs/{id}/duplicate', [ProgramController::class, 'duplicate'])->name('programs.duplicate');
+
+        // Promo Codes management
+        Route::resource('promo-codes', PromoCodeController::class)->except(['show']);
     });
 });
 

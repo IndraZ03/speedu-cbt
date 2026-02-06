@@ -20,3 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('notification/handler', NotificationHandler::class)->name('notification.handler');
+
+// Promo code validation (requires authentication via web session)
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('promo-code/validate', [\App\Http\Controllers\Api\PromoCodeController::class, 'checkCode'])->name('api.promo-code.validate');
+});
+
+// Also allow validation via web middleware for Inertia requests
+Route::middleware('web')->group(function () {
+    Route::post('promo-code/validate', [\App\Http\Controllers\Api\PromoCodeController::class, 'checkCode'])->name('promo-code.validate');
+});
