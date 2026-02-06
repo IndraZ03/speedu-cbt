@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\User\AccountBalanceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\PromoCodeController;
+use App\Http\Controllers\Admin\ExamReviewController;
 
 use App\Http\Controllers\Admin\Region\RegionController;
 
@@ -195,6 +196,12 @@ Route::group(['middleware' => ['auth', 'admin', 'accountIsActive']], function ()
 
         // Promo Codes management
         Route::resource('promo-codes', PromoCodeController::class)->except(['show']);
+
+        // Exam Reviews management
+        Route::get('exam-reviews', [ExamReviewController::class, 'index'])->name('exam-reviews.index');
+        Route::post('exam-reviews/{id}/read', [ExamReviewController::class, 'markAsRead'])->name('exam-reviews.read');
+        Route::post('exam-reviews/read-all', [ExamReviewController::class, 'markAllAsRead'])->name('exam-reviews.read-all');
+        Route::delete('exam-reviews/{id}', [ExamReviewController::class, 'destroy'])->name('exam-reviews.destroy');
     });
 });
 

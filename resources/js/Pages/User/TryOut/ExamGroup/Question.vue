@@ -20,18 +20,17 @@
                 <div class="exam-timer">
                     <div class="timer-label">Sisa Waktu</div>
                     <VueCountdown
-                        :transform="transform"
                         :time="duration"
                         @progress="handleChangeDuration"
                         @end="handleTimeUp"
                         v-slot="{ hours, minutes, seconds }"
                     >
                         <div class="timer-display" :class="{ 'warning': minutes < 5 && hours == 0 }">
-                            <span class="time-block">{{ hours }}</span>
+                            <span class="time-block">{{ String(hours).padStart(2, '0') }}</span>
                             <span class="separator">:</span>
-                            <span class="time-block">{{ minutes }}</span>
+                            <span class="time-block">{{ String(minutes).padStart(2, '0') }}</span>
                             <span class="separator">:</span>
-                            <span class="time-block">{{ seconds }}</span>
+                            <span class="time-block">{{ String(seconds).padStart(2, '0') }}</span>
                         </div>
                     </VueCountdown>
                 </div>
@@ -39,15 +38,15 @@
         </div>
 
         <div class="container-fluid exam-content-area">
-            <div class="row h-100">
+            <div class="row">
                 <!-- Main Question Area -->
-                <div class="col-lg-8 h-100 d-flex flex-column">
+                <div class="col-lg-8 mb-3">
                     <div class="question-card">
                         <!-- Question Header -->
                         <div class="question-header">
                             <div class="question-number">
                                 <span class="label">Soal No.</span>
-                                <span class="number">{{ questionLists[indexPage]["navigation_order"] }}</span>
+                                <span class="number">{{ currentQuestion?.navigation_order || '-' }}</span>
                             </div>
                             <div class="question-meta">
                                 <span class="badge bg-light text-primary">
@@ -58,45 +57,45 @@
 
                         <!-- Question Body -->
                         <div class="question-body">
-                            <div v-if="questionLists[indexPage]">
+                            <div v-if="currentQuestion">
                                 <div class="question-text mb-4">
                                     <div v-html="processedQuestion" class="prevent-select"></div>
                                 </div>
 
                                 <!-- Multiple Choice Options (Type 1) -->
-                                <div v-if="exam.type_option == 1" class="options-list">
+                                <div v-if="exam.type_option == 1 && currentQuestion.answer_order" class="options-list">
                                     <div 
-                                        v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')" 
+                                        v-for="(answer, index) in currentQuestion.answer_order.split(',')" 
                                         :key="index"
                                         class="option-item"
-                                        :class="{ 'selected': answer == getMyAnswer(questionLists[indexPage]['question_id']) }"
-                                        @click="submitAnswer(questionLists[indexPage]['question_id'], answer)"
+                                        :class="{ 'selected': answer == getMyAnswer(currentQuestion.question_id) }"
+                                        @click="submitAnswer(currentQuestion.question_id, answer)"
                                     >
                                         <div class="option-marker">{{ options[index] }}</div>
                                         <div class="option-content">
-                                            <div v-if="exam.show_answer == 1" v-html="processedOptions[answer]" class="prevent-select"></div>
+                                            <div v-if="exam.show_answer == 1" v-html="getProcessedOption(answer)" class="prevent-select"></div>
                                             <div v-else>Pilihan {{ options[index] }}</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Multiple Choice Options (Type 2) -->
-                                <div v-if="exam.type_option == 2" class="options-list type-2">
+                                <div v-if="exam.type_option == 2 && currentQuestion.answer_order" class="options-list type-2">
                                      <div class="options-display mb-3">
                                         <table class="table table-borderless">
-                                            <tr v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')" :key="index">
+                                            <tr v-for="(answer, index) in currentQuestion.answer_order.split(',')" :key="index">
                                                 <td width="30" class="fw-bold">{{ options[index] }}.</td>
-                                                <td><div v-html="processedOptions[answer]"></div></td>
+                                                <td><div v-html="getProcessedOption(answer)"></div></td>
                                             </tr>
                                         </table>
                                      </div>
                                      <div class="options-actions d-flex gap-2">
                                         <button 
-                                            v-for="(answer, index) in questionLists[indexPage]['answer_order'].split(',')"
+                                            v-for="(answer, index) in currentQuestion.answer_order.split(',')"
                                             :key="index"
                                             class="btn btn-option"
-                                            :class="{ 'active': answer == getMyAnswer(questionLists[indexPage]['question_id']) }"
-                                            @click="submitAnswer(questionLists[indexPage]['question_id'], answer)"
+                                            :class="{ 'active': answer == getMyAnswer(currentQuestion.question_id) }"
+                                            @click="submitAnswer(currentQuestion.question_id, answer)"
                                         >
                                             {{ options[index] }}
                                         </button>
@@ -104,8 +103,8 @@
                                 </div>
                             </div>
                             <div v-else class="empty-question">
-                                <div class="alert alert-danger">
-                                    <i class="bx bx-error"></i> Soal tidak ditemukan!
+                                <div class="alert alert-warning">
+                                    <i class="bx bx-loader-alt bx-spin"></i> Memuat soal...
                                 </div>
                             </div>
                         </div>
@@ -161,7 +160,7 @@
                 </div>
 
                 <!-- Navigation Sidebar -->
-                <div class="col-lg-4 h-100">
+                <div class="col-lg-4 mb-3">
                     <div class="nav-sidebar">
                         <div class="nav-header">
                             <h5>Navigasi Soal</h5>
@@ -227,7 +226,7 @@
             <p>Setelah mengakhiri Try Out, Anda tidak dapat kembali ke sesi ini. Pastikan semua jawaban sudah terisi.</p>
             <div class="modal-actions">
                 <button @click="showModalEndExam = false" class="btn btn-light">Batal</button>
-                <button @click="endExam" class="btn btn-danger">Ya, Akhiri</button>
+                <button @click="showRatingModal = true; showModalEndExam = false" class="btn btn-danger">Ya, Akhiri</button>
             </div>
         </div>
     </div>
@@ -249,7 +248,71 @@
             </div>
             
             <div class="modal-actions">
-                <button @click="endExam" class="btn btn-primary w-100">Lanjutkan</button>
+                <button @click="section == lastSection ? (showRatingModal = true, showModalEndTimeExam = false) : endExam()" class="btn btn-primary w-100">Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal (shown after exam ends) -->
+    <div v-if="showRatingModal" class="modal-backdrop-custom">
+        <div class="modal-custom modal-rating">
+            <div class="modal-icon success">
+                <i class="bx bx-check-circle"></i>
+            </div>
+            <h4>Try Out Selesai!</h4>
+            <p>Bagaimana pengalaman Try Out Anda?</p>
+            
+            <!-- Star Rating -->
+            <div class="star-rating">
+                <span 
+                    v-for="star in 5" 
+                    :key="star"
+                    class="star"
+                    :class="{ 'active': star <= rating }"
+                    @click="rating = star"
+                >
+                    <i :class="star <= rating ? 'bx bxs-star' : 'bx bx-star'"></i>
+                </span>
+            </div>
+            <p class="rating-text">{{ getRatingText() }}</p>
+
+            <!-- Review Text -->
+            <div class="form-group mb-3">
+                <textarea 
+                    v-model="reviewText" 
+                    class="form-control" 
+                    rows="3" 
+                    placeholder="Tulis review Anda (opsional)..."
+                ></textarea>
+            </div>
+
+            <!-- Complaint Checkbox -->
+            <div class="form-check mb-3">
+                <input 
+                    type="checkbox" 
+                    class="form-check-input" 
+                    id="hasComplaint" 
+                    v-model="hasComplaint"
+                >
+                <label class="form-check-label" for="hasComplaint">
+                    Saya memiliki keluhan
+                </label>
+            </div>
+
+            <!-- Complaint Text (shown if checkbox is checked) -->
+            <div v-if="hasComplaint" class="form-group mb-3">
+                <textarea 
+                    v-model="complaintText" 
+                    class="form-control" 
+                    rows="3" 
+                    placeholder="Tuliskan keluhan Anda..."
+                ></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button @click="submitWithRating" class="btn btn-primary w-100" :disabled="rating === 0">
+                    <i class="bx bx-check"></i> Selesai
+                </button>
             </div>
         </div>
     </div>
@@ -257,12 +320,10 @@
 </template>
 
 <script>
-// Logic preserved but cleaned up
 import LayoutUser from "../../../../Layouts/LayoutUser.vue";
-import MathJax, { initMathJax, renderByMathjax } from "mathjax-vue3";
 import axios from "axios";
 import { Head, Link } from "@inertiajs/inertia-vue3";
-import { ref, computed, onMounted, nextTick } from "vue";
+import { ref, computed, onMounted, nextTick, watch } from "vue";
 import VueCountdown from "@chenfengyuan/vue-countdown";
 import { Inertia } from "@inertiajs/inertia";
 import Swal from "sweetalert2";
@@ -274,7 +335,6 @@ export default {
         Head,
         Link,
         VueCountdown,
-        MathJax,
     },
     props: {
         id: String,
@@ -289,11 +349,22 @@ export default {
     },
     setup(props) {
         // --- State Management ---
-        const indexPage = ref(props.indexPage);
+        const totalQuestionCount = Object.keys(props.questionLists).length;
+        
+        // Initialize indexPage - reset if exam changed or out of bounds
+        const storedExamId = localStorage.getItem("examId");
         const storedIndexPage = localStorage.getItem("indexPage");
-        if (storedIndexPage !== null) {
-            indexPage.value = parseInt(storedIndexPage);
+        let initialIndex = props.indexPage || 0;
+        
+        // Only use stored index if same exam and within bounds
+        if (storedExamId === props.exam.id && storedIndexPage !== null) {
+            const parsedIndex = parseInt(storedIndexPage);
+            if (parsedIndex >= 0 && parsedIndex < totalQuestionCount) {
+                initialIndex = parsedIndex;
+            }
         }
+        
+        const indexPage = ref(initialIndex);
 
         const options = ["A", "B", "C", "D", "E"];
         const myAnswers = ref([]);
@@ -302,8 +373,10 @@ export default {
         const initializeExam = () => {
             if (props.exam.id != localStorage.getItem("examId")) {
                 localStorage.setItem("examId", props.exam.id);
+                localStorage.setItem("indexPage", "0");
                 localStorage.setItem("myAnswers", JSON.stringify([]));
                 myAnswers.value = [];
+                indexPage.value = 0;
             } else {
                 const storedArray = localStorage.getItem("myAnswers");
                 myAnswers.value = storedArray ? JSON.parse(storedArray) : [];
@@ -314,12 +387,24 @@ export default {
         const duration = ref(props.duration);
         const showModalEndExam = ref(false);
         const showModalEndTimeExam = ref(false);
-        const answeredQuestionsCount = ref(0); // Counter for periodic sync
+        const showRatingModal = ref(false);
+        const answeredQuestionsCount = ref(0);
+
+        // Rating state
+        const rating = ref(0);
+        const reviewText = ref("");
+        const hasComplaint = ref(false);
+        const complaintText = ref("");
 
         // --- Computed ---
         const totalQuestions = computed(() => Object.keys(props.questionLists).length);
+        
+        // Current question with safe access
+        const currentQuestion = computed(() => {
+            return props.questionLists[indexPage.value] || null;
+        });
+        
         const answeredCount = computed(() => {
-            // Count unique answered questions for current section based on available questions
             let count = 0;
             const qIds = Object.values(props.questionLists).map(q => q.question_id);
             myAnswers.value.forEach(ans => {
@@ -330,39 +415,33 @@ export default {
             return count;
         });
 
-        // --- Question Processing (MathJax & Images) ---
-        const processedQuestion = computed(() => {
-            if (!props.questionLists[indexPage.value]) return "";
-            let question = props.questionLists[indexPage.value].question;
-            return processContent(question);
-        });
-
-        const processedOptions = computed(() => {
-             if (!props.questionLists[indexPage.value]) return {};
-             let opts = {};
-             // Options 1-5
-             ['option_1', 'option_2', 'option_3', 'option_4', 'option_5'].forEach((key, idx) => {
-                 if (props.questionLists[indexPage.value][key]) {
-                     opts[options[idx]] = processContent(props.questionLists[indexPage.value][key]);
-                 }
-             });
-             return opts;
-        });
-
+        // Process content for display
         const processContent = (content) => {
             if (!content) return "";
-            // Use wrapLatexInText from helper
             return wrapLatexInText(content);
         };
-        
+
+        const processedQuestion = computed(() => {
+            if (!currentQuestion.value) return "";
+            return processContent(currentQuestion.value.question);
+        });
+
+        const getProcessedOption = (answer) => {
+            if (!currentQuestion.value) return "";
+            // answer is a number string like "1", "2", "3", "4", "5"
+            const optionKey = `option_${answer}`;
+            return processContent(currentQuestion.value[optionKey] || "");
+        };
+
         // --- Methods ---
         const loadMath = () => {
             nextTick(() => {
-                if (window.MathJax) {
-                    // Try/catch for safety
+                if (window.MathJax && window.MathJax.typesetPromise) {
                     try {
-                         window.MathJax.typesetPromise && window.MathJax.typesetPromise();
-                    } catch(e) {}
+                        window.MathJax.typesetPromise();
+                    } catch(e) {
+                        console.log("MathJax error:", e);
+                    }
                 }
             });
         };
@@ -372,7 +451,7 @@ export default {
         };
 
         const handleTimeUp = () => {
-             showModalEndTimeExam.value = true;
+            showModalEndTimeExam.value = true;
         };
 
         const prevPage = () => {
@@ -414,14 +493,13 @@ export default {
 
             saveState();
             
-            // Auto next page if not last
             answeredQuestionsCount.value++;
             if (answeredQuestionsCount.value % 20 === 0) {
-                 checkConnection(); // Info: periodic check
+                checkConnection();
             }
 
             if (indexPage.value < totalQuestions.value - 1) {
-                 setTimeout(() => nextPage(), 300); // Small delay for visual feedback
+                setTimeout(() => nextPage(), 300);
             }
         };
 
@@ -431,19 +509,23 @@ export default {
         };
 
         const checkConnection = () => {
-             axios.get("/check-connection").catch(() => {
-                 Swal.fire({
-                     title: "Koneksi Terputus",
-                     text: "Gagal menyimpan jawaban. Periksa koneksi internet Anda.",
-                     icon: "error"
-                 });
-             });
+            axios.get("/check-connection").catch(() => {
+                Swal.fire({
+                    title: "Koneksi Terputus",
+                    text: "Gagal menyimpan jawaban. Periksa koneksi internet Anda.",
+                    icon: "error"
+                });
+            });
+        };
+
+        const getRatingText = () => {
+            const texts = ["", "Sangat Buruk", "Buruk", "Cukup", "Baik", "Sangat Baik"];
+            return texts[rating.value] || "";
         };
 
         const endExam = (block = "") => {
             checkConnection();
             
-            // Prepare data
             const data = {
                 exam_id: props.exam.id,
                 grade_id: props.grade.id,
@@ -456,31 +538,72 @@ export default {
                 onSuccess: () => {
                     if (block === "block") {
                         Swal.fire("Ujian Diblokir", "Anda melewati batas toleransi.", "warning");
-                    } else {
-                        Swal.fire({
-                             title: "Selesai!",
-                             text: "Jawaban berhasil disimpan.",
-                             icon: "success",
-                             timer: 2000,
-                             showConfirmButton: false
-                        });
                     }
                 },
                 onError: (errors) => {
-                     Swal.fire("Error", "Gagal mengakhiri ujian. Silakan coba lagi.", "error");
+                    Swal.fire("Error", "Gagal mengakhiri ujian. Silakan coba lagi.", "error");
+                }
+            });
+        };
+
+        const submitWithRating = () => {
+            checkConnection();
+            
+            const data = {
+                exam_id: props.exam.id,
+                grade_id: props.grade.id,
+                myAnswers: myAnswers.value,
+                rating: rating.value,
+                review: reviewText.value,
+                has_complaint: hasComplaint.value,
+                complaint: complaintText.value,
+            };
+
+            const finishUrl = `/user/exam-groups/${props.exam.id}/exam-end`;
+
+            Inertia.post(finishUrl, data, {
+                onSuccess: () => {
+                    Swal.fire({
+                        title: "Terima Kasih!",
+                        text: "Try Out berhasil diselesaikan.",
+                        icon: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                },
+                onError: (errors) => {
+                    Swal.fire("Error", "Gagal mengakhiri ujian. Silakan coba lagi.", "error");
                 }
             });
         };
 
         // --- Lifecycle ---
         onMounted(() => {
-             // MathJax Init
-             let script = document.createElement("script");
-             script.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-             document.head.appendChild(script);
-             
-             // Initial MathJax render
-             setTimeout(loadMath, 1000);
+            // Load MathJax script
+            if (!window.MathJax) {
+                window.MathJax = {
+                    tex: {
+                        inlineMath: [['$', '$'], ['\\(', '\\)']],
+                        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                    },
+                    svg: {
+                        fontCache: 'global'
+                    }
+                };
+                
+                const script = document.createElement("script");
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.async = true;
+                script.onload = loadMath;
+                document.head.appendChild(script);
+            } else {
+                loadMath();
+            }
+        });
+
+        // Watch for page changes
+        watch(indexPage, () => {
+            nextTick(() => loadMath());
         });
 
         return {
@@ -490,10 +613,16 @@ export default {
             duration,
             showModalEndExam,
             showModalEndTimeExam,
+            showRatingModal,
+            rating,
+            reviewText,
+            hasComplaint,
+            complaintText,
             totalQuestions,
             answeredCount,
+            currentQuestion,
             processedQuestion,
-            processedOptions,
+            getProcessedOption,
             handleChangeDuration,
             handleTimeUp,
             prevPage,
@@ -501,7 +630,9 @@ export default {
             clickQuestion,
             getMyAnswer,
             submitAnswer,
-            endExam
+            getRatingText,
+            endExam,
+            submitWithRating,
         };
     }
 }
@@ -511,10 +642,7 @@ export default {
 /* Main Layout */
 .exam-wrapper {
     background-color: #f0f2f5;
-    height: 100vh; /* Fixed height for viewport */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Prevent body scroll */
+    min-height: 100vh;
 }
 
 /* Top Bar */
@@ -522,7 +650,8 @@ export default {
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 0.75rem 2rem;
-    flex-shrink: 0; /* Don't shrink */
+    position: sticky;
+    top: 0;
     z-index: 100;
 }
 
@@ -614,12 +743,10 @@ export default {
 
 /* Content Area */
 .exam-content-area {
-    flex: 1;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    padding: 1rem; /* Reduced padding */
-    overflow: hidden; /* Ensure internal scrolling works */
+    padding: 1.5rem;
 }
 
 /* Question Card */
@@ -627,10 +754,6 @@ export default {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
 }
 
 .question-header {
@@ -640,7 +763,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
+    border-radius: 16px 16px 0 0;
 }
 
 .question-number {
@@ -665,15 +788,18 @@ export default {
 }
 
 .question-body {
-    flex: 1;
     padding: 1.5rem;
-    overflow-y: auto; /* Internal scrolling */
 }
 
 .question-text {
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #374151;
+}
+
+.question-text img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Options */
@@ -687,9 +813,9 @@ export default {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 0.85rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -702,12 +828,12 @@ export default {
 .option-item.selected {
     border-color: #1477F5;
     background: #eff6ff;
-    box-shadow: 0 0 0 1px #1477F5 inset;
+    box-shadow: 0 0 0 2px rgba(20, 119, 245, 0.2);
 }
 
 .option-marker {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: #e5e7eb;
     color: #6b7280;
@@ -716,7 +842,7 @@ export default {
     justify-content: center;
     font-weight: 600;
     flex-shrink: 0;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: all 0.2s;
 }
 
@@ -727,7 +853,36 @@ export default {
 
 .option-content {
     flex: 1;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-top: 4px;
+}
+
+.option-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Type 2 Options */
+.btn-option {
+    min-width: 50px;
+    height: 50px;
+    border: 2px solid #e5e7eb;
+    color: #374151;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.btn-option:hover {
+    border-color: #1477F5;
+    background: #f8fafc;
+}
+
+.btn-option.active {
+    background: #1477F5;
+    border-color: #1477F5;
+    color: #fff;
 }
 
 /* Footer & Nav Buttons */
@@ -738,7 +893,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     background: #fff;
-    flex-shrink: 0;
+    border-radius: 0 0 16px 16px;
 }
 
 .nav-buttons, .finish-buttons {
@@ -761,16 +916,13 @@ export default {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    position: sticky;
+    top: 80px;
 }
 
 .nav-header {
     padding: 1rem 1.25rem;
     border-bottom: 1px solid #f3f4f6;
-    flex-shrink: 0;
 }
 
 .nav-header h5 {
@@ -806,7 +958,7 @@ export default {
 }
 
 .nav-grid-wrapper {
-    flex: 1;
+    max-height: 350px;
     overflow-y: auto;
     padding: 1.25rem;
 }
@@ -879,7 +1031,6 @@ export default {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    flex-shrink: 0;
 }
 
 .legend-item {
@@ -926,6 +1077,10 @@ export default {
     animation: slideUp 0.3s ease-out;
 }
 
+.modal-rating {
+    max-width: 450px;
+}
+
 @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -944,6 +1099,7 @@ export default {
 
 .modal-icon.warning { background: #fee2e2; color: #dc2626; }
 .modal-icon.timer { background: #fef3c7; color: #d97706; }
+.modal-icon.success { background: #d1fae5; color: #10b981; }
 
 .modal-actions {
     display: flex;
@@ -957,6 +1113,61 @@ export default {
     font-weight: 800;
     color: #d97706;
     margin: 1rem 0;
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.star {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #d1d5db;
+    transition: all 0.2s;
+}
+
+.star:hover,
+.star.active {
+    color: #f59e0b;
+    transform: scale(1.1);
+}
+
+.rating-text {
+    font-weight: 600;
+    color: #f59e0b;
+    margin-bottom: 1rem;
+    min-height: 1.5em;
+}
+
+/* Form Controls in Modal */
+.modal-rating .form-control {
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+
+.modal-rating .form-control:focus {
+    border-color: #1477F5;
+    box-shadow: 0 0 0 3px rgba(20, 119, 245, 0.1);
+}
+
+.modal-rating .form-check {
+    text-align: left;
+}
+
+.modal-rating .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.modal-rating .form-check-label {
+    margin-left: 0.5rem;
+    font-weight: 500;
 }
 
 /* Scrollbar Styling */
@@ -976,5 +1187,24 @@ export default {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .exam-content-area {
+        padding: 1rem;
+    }
+    
+    .topbar-container {
+        padding: 0 1rem;
+    }
+}
+
+/* Prevent text selection */
+.prevent-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 </style>

@@ -141,6 +141,14 @@
                     <div class="menu-title">Faq</div>
                 </Link>
             </li>
+            <li>
+                <Link href="/admin/exam-reviews" class="menu-clicked">
+                    <div class="parent-icon">
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <div class="menu-title">Review Try Out</div>
+                </Link>
+            </li>
             <div
                 v-if="
                     $page.props.setting.purchase_type == 2 ||

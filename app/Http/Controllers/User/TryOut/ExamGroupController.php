@@ -11,6 +11,7 @@ use App\Repositories\Exam\ExamGroupRepository;
 use App\Models\Exam\ExamGroupUser;
 use App\Models\Exam\ExamGroup;
 use App\Models\Exam\Grade;
+use App\Models\Exam\ExamReview;
 use App\Models\UserMemberCategory;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Lesson\Question;
@@ -23,6 +24,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Auth;
 use File;
 use DB;
+
 
 class ExamGroupController extends Controller
 {
@@ -543,6 +545,22 @@ class ExamGroupController extends Controller
                 'is_finished' => 1,
             ]);
 
+            // Save review if provided
+            if ($request->has('rating') && $request->rating > 0) {
+                ExamReview::updateOrCreate(
+                    [
+                        'user_id' => Auth::id(),
+                        'exam_group_id' => $examGroup->id,
+                    ],
+                    [
+                        'rating' => $request->rating,
+                        'review' => $request->review,
+                        'has_complaint' => $request->has_complaint ?? false,
+                        'complaint' => $request->complaint,
+                    ]
+                );
+            }
+
             DB::commit();
             
             return redirect()->route('user.exam_group.show', [
@@ -552,7 +570,7 @@ class ExamGroupController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['error' => $e], 500);
+            return redirect()->back()->withErrors(['error' => 'Gagal mengakhiri ujian. Silakan coba lagi.']);
         }
     }
 
