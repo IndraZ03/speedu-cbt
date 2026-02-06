@@ -511,18 +511,18 @@ export default {
 /* Main Layout */
 .exam-wrapper {
     background-color: #f0f2f5;
-    min-height: 100vh;
+    height: 100vh; /* Fixed height for viewport */
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Prevent body scroll */
 }
 
 /* Top Bar */
 .exam-topbar {
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
+    padding: 0.75rem 2rem;
+    flex-shrink: 0; /* Don't shrink */
     z-index: 100;
 }
 
@@ -532,6 +532,7 @@ export default {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .user-info {
@@ -541,16 +542,16 @@ export default {
 }
 
 .user-avatar {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(135deg, #1477F5, #0d5cbf);
     color: #fff;
-    border-radius: 12px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .user-details {
@@ -561,10 +562,11 @@ export default {
 .user-name {
     font-weight: 600;
     color: #1f2937;
+    font-size: 0.95rem;
 }
 
 .exam-name {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #6b7280;
 }
 
@@ -575,22 +577,22 @@ export default {
 }
 
 .timer-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #9ca3af;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
 .timer-display {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     font-family: 'Monaco', 'Consolas', monospace;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: #1f2937;
     background: #f3f4f6;
-    padding: 0.25rem 0.75rem;
-    border-radius: 8px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
 }
 
 .timer-display.warning {
@@ -606,7 +608,7 @@ export default {
 }
 
 .time-block {
-    min-width: 2ch;
+    min-width: 1.8ch;
     text-align: center;
 }
 
@@ -615,15 +617,16 @@ export default {
     flex: 1;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
     width: 100%;
+    padding: 1rem; /* Reduced padding */
+    overflow: hidden; /* Ensure internal scrolling works */
 }
 
 /* Question Card */
 .question-card {
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -632,11 +635,12 @@ export default {
 
 .question-header {
     background: #fff;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid #f3f4f6;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .question-number {
@@ -648,24 +652,26 @@ export default {
 .question-number .label {
     color: #6b7280;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .question-number .number {
     background: #1477F5;
     color: #fff;
-    padding: 0.25rem 0.75rem;
-    border-radius: 8px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
     font-weight: 700;
+    font-size: 0.9rem;
 }
 
 .question-body {
     flex: 1;
-    padding: 2rem;
-    overflow-y: auto;
+    padding: 1.5rem;
+    overflow-y: auto; /* Internal scrolling */
 }
 
 .question-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     color: #374151;
 }
@@ -674,16 +680,16 @@ export default {
 .options-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .option-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
+    padding: 0.85rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -696,11 +702,12 @@ export default {
 .option-item.selected {
     border-color: #1477F5;
     background: #eff6ff;
+    box-shadow: 0 0 0 1px #1477F5 inset;
 }
 
 .option-marker {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: #e5e7eb;
     color: #6b7280;
@@ -709,6 +716,7 @@ export default {
     justify-content: center;
     font-weight: 600;
     flex-shrink: 0;
+    font-size: 0.9rem;
     transition: all 0.2s;
 }
 
@@ -719,72 +727,63 @@ export default {
 
 .option-content {
     flex: 1;
-}
-
-/* Type 2 Options */
-.btn-option {
-    min-width: 45px;
-    height: 45px;
-    border: 2px solid #e5e7eb;
-    color: #374151;
-    font-weight: 600;
-}
-
-.btn-option.active {
-    background: #1477F5;
-    border-color: #1477F5;
-    color: #fff;
+    font-size: 0.95rem;
 }
 
 /* Footer & Nav Buttons */
 .question-footer {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     border-top: 1px solid #f3f4f6;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #fff;
+    flex-shrink: 0;
 }
 
 .nav-buttons, .finish-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .btn-nav, .btn-finish {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
+    gap: 0.4rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 /* Navigation Sidebar */
 .nav-sidebar {
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .nav-header {
-    padding: 1.5rem;
+    padding: 1rem 1.25rem;
     border-bottom: 1px solid #f3f4f6;
+    flex-shrink: 0;
 }
 
 .nav-header h5 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
     color: #1f2937;
+    font-size: 1.1rem;
 }
 
 .progress-stats {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .stat-item {
@@ -794,7 +793,7 @@ export default {
 }
 
 .stat-item .count {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
@@ -802,20 +801,20 @@ export default {
 .stat-item.unanswered .count { color: #ef4444; }
 
 .stat-item .label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #6b7280;
 }
 
 .nav-grid-wrapper {
     flex: 1;
     overflow-y: auto;
-    padding: 1.5rem;
+    padding: 1.25rem;
 }
 
 .nav-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0.75rem;
+    gap: 0.6rem;
 }
 
 .nav-item-wrapper {
@@ -825,12 +824,12 @@ export default {
 .nav-item {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     background: #f3f4f6;
     color: #4b5563;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     position: relative;
     cursor: pointer;
     transition: all 0.2s;
@@ -843,8 +842,8 @@ export default {
 .nav-item.active {
     background: #1477F5;
     color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(20, 119, 245, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(20, 119, 245, 0.3);
     z-index: 2;
 }
 
@@ -858,45 +857,42 @@ export default {
     color: #4b5563;
 }
 
-.nav-item.active.answered {
-    background: #059669; /* Darker green if active and answered */
-}
-
 .check-icon {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -4px;
+    right: -4px;
     background: #fff;
     color: #10b981;
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 9px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .nav-legend {
-    padding: 1.5rem;
+    padding: 0.75rem;
     border-top: 1px solid #f3f4f6;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
+    gap: 0.4rem;
+    font-size: 0.75rem;
     color: #6b7280;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
 }
 
@@ -961,5 +957,24 @@ export default {
     font-weight: 800;
     color: #d97706;
     margin: 1rem 0;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 </style>
