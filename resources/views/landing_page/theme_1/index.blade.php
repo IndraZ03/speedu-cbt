@@ -393,97 +393,117 @@
             /* Testimonials Section */
             .testimonials-section {
                 padding: 100px 0;
-                background: #fff;
+                background: #f8fafc;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .testimonials-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 50% 50%, rgba(0, 97, 211, 0.03) 0%, transparent 60%);
+                pointer-events: none;
             }
 
             .testimonial-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(323px, 1fr));
                 gap: 2rem;
                 margin-top: 3rem;
+                position: relative;
+                z-index: 10;
             }
 
             .testimonial-card {
-                background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+                background: #ffffff;
                 border-radius: 24px;
-                padding: 2rem;
+                overflow: hidden;
                 position: relative;
-                transition: all 0.3s ease;
-                border: 1px solid #e2e8f0;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border: 1px solid rgba(226, 232, 240, 0.8);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                display: flex;
+                flex-direction: column;
+                height: 100%;
             }
 
             .testimonial-card:hover {
                 transform: translateY(-8px);
-                box-shadow: 0 20px 40px rgba(0, 97, 211, 0.1);
-                border-color: #0061d3;
+                box-shadow: 0 20px 40px -5px rgba(0, 97, 211, 0.1);
+                border-color: rgba(0, 97, 211, 0.2);
             }
 
-            .testimonial-card::before {
-                content: '"';
-                position: absolute;
-                top: 20px;
-                right: 30px;
-                font-size: 6rem;
-                font-family: Georgia, serif;
-                color: #e2e8f0;
-                line-height: 1;
+            .testimonial-image-container {
+                width: 100%;
+                height: 370px;
+                background: #f1f5f9;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .testimonial-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .testimonial-card:hover .testimonial-image {
+                transform: scale(1.05);
+            }
+
+            .testimonial-body {
+                padding: 2rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                min-height: 250px;
             }
 
             .testimonial-rating {
                 display: flex;
                 gap: 4px;
                 margin-bottom: 1rem;
-            }
-
-            .testimonial-rating i {
                 color: #f59e0b;
+                font-size: 0.9rem;
             }
 
             .testimonial-content {
                 font-size: 1rem;
-                color: #475569;
-                line-height: 1.7;
+                color: #334155;
+                font-weight: 500;
+                line-height: 1.6;
                 margin-bottom: 1.5rem;
-                position: relative;
-                z-index: 10;
+                flex-grow: 1;
+                font-style: italic;
             }
 
             .testimonial-author {
                 display: flex;
-                align-items: center;
-                gap: 1rem;
+                flex-direction: column;
+                margin-top: 0;
             }
 
-            .testimonial-avatar {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                object-fit: cover;
-                border: 3px solid #0061d3;
-            }
-
-            .testimonial-avatar-placeholder {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #0061d3, #00a8ff);
+            .testimonial-info {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                font-weight: 700;
-                font-size: 1.25rem;
+                flex-direction: column;
             }
 
             .testimonial-name {
                 font-weight: 700;
-                color: #1a365d;
-                font-size: 1rem;
+                color: #1e293b;
+                font-size: 1.25rem;
+                margin-bottom: 2px;
             }
 
             .testimonial-position {
-                font-size: 0.875rem;
+                font-size: 0.95rem;
                 color: #64748b;
+                font-weight: 500;
             }
 
             /* CTA Section */
@@ -955,27 +975,36 @@
                             <div class="testimonial-grid">
                                 @foreach($testimonials as $testimonial)
                                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                                    <div class="testimonial-rating">
-                                        @for($i = 1; $i <= 5; $i++)
-                                        <i class="fas fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted' }}"></i>
-                                        @endfor
-                                    </div>
-                                    <p class="testimonial-content">{{ $testimonial->content }}</p>
-                                    <div class="testimonial-author">
+                                    <!-- Image Top -->
+                                    <div class="testimonial-image-container">
                                         @if($testimonial->photo)
                                         <img src="{{ asset('storage/upload_files/testimonials/'.$testimonial->photo) }}" 
-                                             alt="{{ $testimonial->name }}" class="testimonial-avatar">
+                                             alt="{{ $testimonial->name }}" class="testimonial-image">
                                         @else
-                                        <div class="testimonial-avatar-placeholder">
-                                            {{ strtoupper(substr($testimonial->name, 0, 1)) }}
+                                        <div class="testimonial-image d-flex align-items-center justify-content-center bg-light">
+                                            <span class="text-muted" style="font-size: 5rem;">
+                                                {{ strtoupper(substr($testimonial->name, 0, 1)) }}
+                                            </span>
                                         </div>
                                         @endif
-                                        <div>
+                                    </div>
+                                    
+                                    <!-- Content Body -->
+                                    <div class="testimonial-body">
+                                        <div class="testimonial-author mb-2">
                                             <div class="testimonial-name">{{ $testimonial->name }}</div>
                                             @if($testimonial->position)
                                             <div class="testimonial-position">{{ $testimonial->position }}</div>
                                             @endif
                                         </div>
+
+                                        <div class="testimonial-rating mb-3">
+                                            @for($i = 1; $i <= 5; $i++)
+                                            <i class="fas fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted' }}"></i>
+                                            @endfor
+                                        </div>
+                                        
+                                        <p class="testimonial-content">"{{ $testimonial->content }}"</p>
                                     </div>
                                 </div>
                                 @endforeach
@@ -995,60 +1024,66 @@
 
                             <div class="testimonial-grid">
                                 <div class="testimonial-card" data-aos="fade-up">
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                    <div class="testimonial-image-container">
+                                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="testimonial-image" alt="Ahmad Fauzan">
                                     </div>
-                                    <p class="testimonial-content">
-                                        Alhamdulillah berkat latihan di SpeedU, saya bisa lolos STMKG. Soal-soalnya mirip banget sama yang keluar di ujian!
-                                    </p>
-                                    <div class="testimonial-author">
-                                        <div class="testimonial-avatar-placeholder">A</div>
-                                        <div>
+                                    <div class="testimonial-body">
+                                        <div class="testimonial-author mb-2">
                                             <div class="testimonial-name">Ahmad Fauzan</div>
                                             <div class="testimonial-position">Siswa STMKG 2025</div>
                                         </div>
+                                        <div class="testimonial-rating mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-content">
+                                            "Alhamdulillah berkat latihan di SpeedU, saya bisa lolos STMKG. Soal-soalnya mirip banget sama yang keluar di ujian!"
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                    <div class="testimonial-image-container">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="testimonial-image" alt="Siti Nurhaliza">
                                     </div>
-                                    <p class="testimonial-content">
-                                        Platform terbaik untuk latihan CAT! Pembahasan lengkap dan mudah dipahami. Sangat recommended!
-                                    </p>
-                                    <div class="testimonial-author">
-                                        <div class="testimonial-avatar-placeholder">S</div>
-                                        <div>
+                                    <div class="testimonial-body">
+                                        <div class="testimonial-author mb-2">
                                             <div class="testimonial-name">Siti Nurhaliza</div>
                                             <div class="testimonial-position">Alumni STAN 2024</div>
                                         </div>
+                                        <div class="testimonial-rating mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-content">
+                                            "Platform terbaik untuk latihan CAT! Pembahasan lengkap dan mudah dipahami. Sangat recommended!"
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="testimonial-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                    <div class="testimonial-image-container">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="testimonial-image" alt="Rizky Pratama">
                                     </div>
-                                    <p class="testimonial-content">
-                                        Fitur ranking peserta bikin saya makin semangat belajar. Bisa lihat progress dan saingan setiap hari!
-                                    </p>
-                                    <div class="testimonial-author">
-                                        <div class="testimonial-avatar-placeholder">R</div>
-                                        <div>
+                                    <div class="testimonial-body">
+                                        <div class="testimonial-author mb-2">
                                             <div class="testimonial-name">Rizky Pratama</div>
                                             <div class="testimonial-position">Peserta Try Out SKD</div>
                                         </div>
+                                        <div class="testimonial-rating mb-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-content">
+                                            "Fitur ranking peserta bikin saya makin semangat belajar. Bisa lihat progress dan saingan setiap hari!"
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -89,13 +89,13 @@
                             </div>
 
                             <!-- Member Categories -->
-                            <div class="member-badges" v-if="$page.props.auth.user.member_type == 2 && ($page.props.setting.purchase_type == 2 || $page.props.setting.purchase_type == 3)">
-                                <div v-if="exam.member_categories">
+                            <div v-if="$page.props.auth.user.member_type == 2 && ($page.props.setting.purchase_type == 2 || $page.props.setting.purchase_type == 3)">
+                                <div v-if="exam.member_categories" class="member-badges">
                                     <span v-for="(memberCategory, idx) in exam.member_categories" :key="idx" class="member-badge">
                                         {{ memberCategory }}
                                     </span>
                                 </div>
-                                <div v-else>
+                                <div v-else class="member-badges">
                                     <span class="member-badge all-access">Semua Member</span>
                                 </div>
                             </div>
